@@ -12,9 +12,12 @@ $this->menu=array(
 );
 ?>
 
-<h1>Factor Procesos</h1>
+<h1>Factores</h1>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+<?php foreach ($model as $factor) {?>
+    <?php $s=$factor->numero_factor.". ".$factor->titulo; ?>
+
+<div>
+    <?php echo CHtml::link($s, array('CaracteristicaProceso/index', 'idFactor'=>$factor->id_factor_proceso)); ?>
+</div>
+<?php } ?>

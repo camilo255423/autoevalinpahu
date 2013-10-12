@@ -120,11 +120,11 @@ class FactorProcesoController extends Controller
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex()
+	public function actionIndex($idProceso)
 	{
-		$dataProvider=new CActiveDataProvider('FactorProceso');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+	$model = FactorProceso::model()->findAllByAttributes(array('id_proceso'=>$idProceso),array('order'=>'numero_factor'));
+        $this->render('index',array(
+			'model'=>$model,
 		));
 	}
 

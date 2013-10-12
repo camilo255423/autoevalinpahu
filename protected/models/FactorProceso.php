@@ -12,7 +12,7 @@
  *
  * The followings are the available model relations:
  * @property CaracteristicaProceso[] $caracteristicaProcesos
- * @property Proceso $idFactorProceso
+ * @property Proceso $idProceso
  */
 class FactorProceso extends CActiveRecord
 {
@@ -50,7 +50,7 @@ class FactorProceso extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'caracteristicaProcesos' => array(self::HAS_MANY, 'CaracteristicaProceso', 'id_factor_proceso'),
-			'idFactorProceso' => array(self::BELONGS_TO, 'Proceso', 'id_factor_proceso'),
+			'idProceso' => array(self::BELONGS_TO, 'Proceso', 'id_proceso'),
 		);
 	}
 

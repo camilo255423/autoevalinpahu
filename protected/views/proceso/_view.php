@@ -5,10 +5,11 @@
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_proceso')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->descripcion), array('view', 'idProceso'=>$data->id_proceso)); ?>
-	
-
+	<b>Proceso: </b>
+	<?php echo CHtml::link(CHtml::encode($data->descripcion), array('FactorProceso/index', 'idProceso'=>$data->id_proceso)); ?>
+	<b>Tipo de Proceso:</b>
+	<?php echo CHtml::encode($data->idProceso->nombre); ?>
+        <br />
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fecha_inicio')); ?>:</b>
 	<?php echo CHtml::encode($data->fecha_inicio); ?>
 	
@@ -17,13 +18,10 @@
 	<?php echo CHtml::encode($data->fecha_fin); ?>
 
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_tipo_proceso')); ?>:</b>
-	<?php echo CHtml::encode($data->id_tipo_proceso); ?>
-	<br />
+	
+	
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('descripcion')); ?>:</b>
-	<?php echo CHtml::encode($data->descripcion); ?>
-	<br />
+	
 
 
 </div>
