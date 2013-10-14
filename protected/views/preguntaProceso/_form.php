@@ -1,13 +1,13 @@
 <?php
-/* @var $this FactorProcesoController */
-/* @var $model FactorProceso */
+/* @var $this PreguntaProcesoController */
+/* @var $model PreguntaProceso */
 /* @var $form CActiveForm */
 ?>
 
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'factor-proceso-form',
+	'id'=>'pregunta-proceso-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -20,28 +20,16 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		
-		<?php echo $form->hiddenField($model,'id_proceso'); ?>
-	</div>
-        <div class="row">
-		<?php echo $form->labelEx($model,'numero_factor'); ?>
-		<?php echo $form->textField($model,'numero_factor'); ?>
-		<?php echo $form->error($model,'numero_factor'); ?>
+		<?php echo $form->labelEx($model,'enunciado'); ?>
+		<?php echo $form->textArea($model,'enunciado',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'enunciado'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'titulo'); ?>
-		<?php echo $form->textField($model,'titulo',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'titulo'); ?>
+		<?php echo $form->labelEx($model,'id_tipo_respuesta'); ?>
+		<?php echo $form->textField($model,'id_tipo_respuesta'); ?>
+		<?php echo $form->error($model,'id_tipo_respuesta'); ?>
 	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'descripcion'); ?>
-		<?php echo $form->textArea($model,'descripcion',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'descripcion'); ?>
-	</div>
-
-	
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

@@ -49,7 +49,7 @@ class CaracteristicaProceso extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'caracteristicaPreguntaProcesos' => array(self::HAS_MANY, 'CaracteristicaPreguntaProceso', 'id_caracteristica_proceso'),
+			'preguntas' => array(self::MANY_MANY, 'PreguntaProceso', 'caracteristica_pregunta_proceso(id_pregunta_proceso,id_caracteristica_proceso)'),
 			'idFactorProceso' => array(self::BELONGS_TO, 'FactorProceso', 'id_factor_proceso'),
 		);
 	}

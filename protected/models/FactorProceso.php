@@ -32,7 +32,7 @@ class FactorProceso extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_proceso, titulo, descripcion, numero_factor', 'required'),
+			array('id_proceso, titulo, numero_factor', 'required'),
 			array('id_proceso, numero_factor', 'numerical', 'integerOnly'=>true),
 			array('titulo', 'length', 'max'=>200),
 			// The following rule is used by search().

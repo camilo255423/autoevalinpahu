@@ -1,6 +1,6 @@
 <?php
 
-class FactorProcesoController extends Controller
+class PreguntaProcesoController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -62,17 +62,16 @@ class FactorProcesoController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new FactorProceso;
-                $model->id_proceso = Yii::app()->session['idProceso'];
-              
+		$model=new PreguntaProceso;
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['FactorProceso']))
+		if(isset($_POST['PreguntaProceso']))
 		{
-			$model->attributes=$_POST['FactorProceso'];
+			$model->attributes=$_POST['PreguntaProceso'];
 			if($model->save())
-				$this->redirect(array('index','idProceso'=>$model->id_proceso));
+				$this->redirect(array('view','id'=>$model->id_pregunta_proceso));
 		}
 
 		$this->render('create',array(
@@ -92,11 +91,11 @@ class FactorProcesoController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['FactorProceso']))
+		if(isset($_POST['PreguntaProceso']))
 		{
-			$model->attributes=$_POST['FactorProceso'];
+			$model->attributes=$_POST['PreguntaProceso'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_factor_proceso));
+				$this->redirect(array('view','id'=>$model->id_pregunta_proceso));
 		}
 
 		$this->render('update',array(
@@ -121,12 +120,11 @@ class FactorProcesoController extends Controller
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex($idProceso)
+	public function actionIndex()
 	{
-        Yii::app()->session['idProceso'] = $idProceso;
-	$model = FactorProceso::model()->findAllByAttributes(array('id_proceso'=>$idProceso),array('order'=>'numero_factor'));
-        $this->render('index',array(
-			'model'=>$model,
+		$dataProvider=new CActiveDataProvider('PreguntaProceso');
+		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
 		));
 	}
 
@@ -135,10 +133,10 @@ class FactorProcesoController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new FactorProceso('search');
+		$model=new PreguntaProceso('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['FactorProceso']))
-			$model->attributes=$_GET['FactorProceso'];
+		if(isset($_GET['PreguntaProceso']))
+			$model->attributes=$_GET['PreguntaProceso'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -149,12 +147,12 @@ class FactorProcesoController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return FactorProceso the loaded model
+	 * @return PreguntaProceso the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=FactorProceso::model()->findByPk($id);
+		$model=PreguntaProceso::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -162,11 +160,11 @@ class FactorProcesoController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param FactorProceso $model the model to be validated
+	 * @param PreguntaProceso $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='factor-proceso-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='pregunta-proceso-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

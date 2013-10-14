@@ -1,6 +1,6 @@
 <?php
 
-class FactorProcesoController extends Controller
+class CaracteristicaProcesoController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -32,7 +32,7 @@ class FactorProcesoController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','preguntas','editarPreguntas'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -62,17 +62,16 @@ class FactorProcesoController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new FactorProceso;
-                $model->id_proceso = Yii::app()->session['idProceso'];
-              
+		$model=new CaracteristicaProceso;
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['FactorProceso']))
+		if(isset($_POST['CaracteristicaProceso']))
 		{
-			$model->attributes=$_POST['FactorProceso'];
+			$model->attributes=$_POST['CaracteristicaProceso'];
 			if($model->save())
-				$this->redirect(array('index','idProceso'=>$model->id_proceso));
+				$this->redirect(array('view','id'=>$model->id_caracteristica_proceso));
 		}
 
 		$this->render('create',array(
@@ -92,11 +91,11 @@ class FactorProcesoController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['FactorProceso']))
+		if(isset($_POST['CaracteristicaProceso']))
 		{
-			$model->attributes=$_POST['FactorProceso'];
+			$model->attributes=$_POST['CaracteristicaProceso'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_factor_proceso));
+				$this->redirect(array('view','id'=>$model->id_caracteristica_proceso));
 		}
 
 		$this->render('update',array(
@@ -121,24 +120,81 @@ class FactorProcesoController extends Controller
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex($idProceso)
+	public function actionIndex($idFactor)
 	{
-        Yii::app()->session['idProceso'] = $idProceso;
-	$model = FactorProceso::model()->findAllByAttributes(array('id_proceso'=>$idProceso),array('order'=>'numero_factor'));
+	$factor = FactorProceso::model()->findByPk($idFactor);	  
+	$model = CaracteristicaProceso::model()->findAllByAttributes(array('id_factor_proceso'=>$idFactor),array('order'=>'numero_caracteristica'));
         $this->render('index',array(
 			'model'=>$model,
+                        'factor'=>$factor,
 		));
 	}
-
+        
+        public function actionPreguntas($idCaracteristica)
+        {
+        $idProceso = Yii::app()->session['idProceso'];    
+        $caracteristica = CaracteristicaProceso::model()->with('preguntas.fuentes')->findByPk($idCaracteristica);	  
+        $fuentes = FuenteProceso::model()->findAllByAttributes(array("id_proceso"=>$idProceso));
+        
+        $this->render('preguntas',array(
+			
+                        'caracteristica'=>$caracteristica,
+                        'fuentes'=>$fuentes,
+		));
+        }
+        public function actionEditarPreguntas($idCaracteristica)
+        {
+        $idProceso = Yii::app()->session['idProceso'];     
+        $fuentes = FuenteProceso::model()->findAllByAttributes(array("id_proceso"=>$idProceso));
+       
+        if(isset($_POST['PreguntaProceso']))
+        {
+            foreach($_POST['PreguntaProceso'] as $i=>$pregunta)
+            {    
+            $model=PreguntaProceso::model()->findByPk($pregunta['id_pregunta_proceso']);
+            $model->enunciado = $pregunta['enunciado'];
+            $model->save();
+            PreguntaFuenteProceso::model()->deleteAllByAttributes(array("id_pregunta_proceso"=>$pregunta['id_pregunta_proceso']));
+          
+            foreach($fuentes as $fuente) 
+             {
+               if(isset($_POST['fuentes'][$i][$fuente->id_fuente_proceso])) 
+               {  
+            
+                  
+                $model = new PreguntaFuenteProceso();
+                $model->id_fuente_proceso=$fuente->id_fuente_proceso;
+                $model->id_pregunta_proceso=$pregunta['id_pregunta_proceso'];
+              
+                $model->save();
+                       
+               }  
+             }
+          
+            }
+            
+           
+             $this->redirect(array('preguntas','idCaracteristica'=>$_POST['idCaracteristica']));
+            
+        }    
+        $caracteristica = CaracteristicaProceso::model()->with('preguntas.fuentes')->findByPk($idCaracteristica);	  
+        
+        
+        $this->render('editarPreguntas',array(
+			
+                        'caracteristica'=>$caracteristica,
+                        'fuentes'=>$fuentes,
+		));
+        }
 	/**
 	 * Manages all models.
 	 */
 	public function actionAdmin()
 	{
-		$model=new FactorProceso('search');
+		$model=new CaracteristicaProceso('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['FactorProceso']))
-			$model->attributes=$_GET['FactorProceso'];
+		if(isset($_GET['CaracteristicaProceso']))
+			$model->attributes=$_GET['CaracteristicaProceso'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -149,12 +205,12 @@ class FactorProcesoController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return FactorProceso the loaded model
+	 * @return CaracteristicaProceso the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=FactorProceso::model()->findByPk($id);
+		$model=CaracteristicaProceso::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -162,11 +218,11 @@ class FactorProcesoController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param FactorProceso $model the model to be validated
+	 * @param CaracteristicaProceso $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='factor-proceso-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='caracteristica-proceso-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

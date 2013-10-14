@@ -267,3 +267,1065 @@ Stack trace:
 REQUEST_URI=/autoevalinpahu/index.php?r=FactorProceso/index&idProceso=1
 HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=proceso
 ---
+2013/10/12 21:49:58 [warning] [application] Failed to set unsafe attribute "descripcion" of "FactorProceso".
+in /var/www/autoevalinpahu/protected/controllers/FactorProcesoController.php (73)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/12 21:50:03 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#9 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('factorProceso/i...')
+#10 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=factorProceso/index
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=factorProceso/view&id=3
+---
+2013/10/12 21:53:54 [warning] [application] Failed to set unsafe attribute "descripcion" of "FactorProceso".
+in /var/www/autoevalinpahu/protected/controllers/FactorProcesoController.php (73)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/12 22:14:30 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'numero_caracteristica' in 'order clause'. The SQL statement executed was: SELECT * FROM `factor_proceso` `t` WHERE `t`.`id_factor_proceso`=:yp0 ORDER BY numero_caracteristica.
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (126)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/12 22:14:30 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'numero_caracteristica' in 'order clause'. The SQL statement executed was: SELECT * FROM `factor_proceso` `t` WHERE `t`.`id_factor_proceso`=:yp0 ORDER BY numero_caracteristica' in /var/www/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/yii/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(1351): CDbCommand->queryAll()
+#2 /var/www/yii/framework/db/ar/CActiveRecord.php(1536): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(126): CActiveRecord->findAllByAttributes(Array, Array)
+#4 [internal function]: CaracteristicaProcesoController->actionIndex('1')
+#5 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#6 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#7 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#14 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#16 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('CaracteristicaP...')
+#17 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=CaracteristicaProceso/index&idFactor=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=FactorProceso/index&idProceso=1
+---
+2013/10/12 22:15:15 [error] [exception.CException] exception 'CException' with message 'Property "CaracteristicaProceso.numero_factor" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('numero_factor')
+#1 /var/www/autoevalinpahu/protected/views/caracteristicaProceso/index.php(18): CActiveRecord->__get('numero_factor')
+#2 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/autoev...')
+#3 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/autoev...', Array, true)
+#4 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/autoev...', Array, true)
+#5 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#6 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(130): CController->render('index', Array)
+#7 [internal function]: CaracteristicaProcesoController->actionIndex('1')
+#8 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#9 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#10 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#19 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('CaracteristicaP...')
+#20 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=CaracteristicaProceso/index&idFactor=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=FactorProceso/index&idProceso=1
+---
+2013/10/12 22:16:12 [error] [exception.CException] exception 'CException' with message 'Property "CaracteristicaProceso.numero_factor" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('numero_factor')
+#1 /var/www/autoevalinpahu/protected/views/caracteristicaProceso/index.php(18): CActiveRecord->__get('numero_factor')
+#2 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/autoev...')
+#3 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/autoev...', Array, true)
+#4 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/autoev...', Array, true)
+#5 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#6 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(130): CController->render('index', Array)
+#7 [internal function]: CaracteristicaProcesoController->actionIndex('1')
+#8 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#9 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#10 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#19 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('CaracteristicaP...')
+#20 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=CaracteristicaProceso/index&idFactor=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=FactorProceso/index&idProceso=1
+---
+2013/10/13 09:28:12 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#9 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('CaracteristicaP...')
+#10 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=CaracteristicaProceso/index&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=CaracteristicaProceso/index&idFactor=1
+---
+2013/10/13 09:31:08 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('preguntas')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('CaracteristicaP...')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=site/login
+---
+2013/10/13 09:31:55 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('preguntas')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('CaracteristicaP...')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=site/login
+---
+2013/10/13 09:31:57 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('preguntas')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('CaracteristicaP...')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=site/login
+---
+2013/10/13 09:32:28 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'preguntas.' in 'on clause'. The SQL statement executed was: SELECT `t`.`id_caracteristica_proceso` AS `t0_c0`, `t`.`titulo` AS `t0_c1`, `t`.`descripcion` AS `t0_c2`, `t`.`numero_caracteristica` AS `t0_c3`, `t`.`id_factor_proceso` AS `t0_c4`, `preguntas`.`id_pregunta_proceso` AS `t1_c0`, `preguntas`.`id_caracteristica_proceso` AS `t1_c1`, `fuentes`.`id_pregunta_proceso` AS `t2_c0`, `fuentes`.`enunciado` AS `t2_c1`, `fuentes`.`id_tipo_respuesta` AS `t2_c2` FROM `caracteristica_proceso` `t`  LEFT OUTER JOIN `caracteristica_pregunta_proceso` `preguntas` ON (`preguntas`.`id_caracteristica_proceso`=`t`.`id_caracteristica_proceso`)  LEFT OUTER JOIN `pregunta_proceso` `fuentes` ON (`fuentes`.`id_pregunta_proceso`=`preguntas`.``)  WHERE (`t`.`id_caracteristica_proceso`=1).
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (135)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 09:32:28 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'preguntas.' in 'on clause'. The SQL statement executed was: SELECT `t`.`id_caracteristica_proceso` AS `t0_c0`, `t`.`titulo` AS `t0_c1`, `t`.`descripcion` AS `t0_c2`, `t`.`numero_caracteristica` AS `t0_c3`, `t`.`id_factor_proceso` AS `t0_c4`, `preguntas`.`id_pregunta_proceso` AS `t1_c0`, `preguntas`.`id_caracteristica_proceso` AS `t1_c1`, `fuentes`.`id_pregunta_proceso` AS `t2_c0`, `fuentes`.`enunciado` AS `t2_c1`, `fuentes`.`id_tipo_respuesta` AS `t2_c2` FROM `caracteristica_proceso` `t`  LEFT OUTER JOIN `caracteristica_pregunta_proceso` `preguntas` ON (`preguntas`.`id_caracteristica_proceso`=`t`.`id_caracteristica_proceso`)  LEFT OUTER JOIN `pregunta_proceso` `fuentes` ON (`fuentes`.`id_pregunta_proceso`=`preguntas`.``)  WHERE (`t`.`id_caracteristica_proceso`=1)' in /var/www/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/yii/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/yii/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/yii/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/yii/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/yii/framework/db/ar/CActiveRecord.php(1356): CActiveFinder->query(Object(CDbCriteria), false)
+#5 /var/www/yii/framework/db/ar/CActiveRecord.php(1486): CActiveRecord->query(Object(CDbCriteria))
+#6 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(135): CActiveRecord->findByPk('1')
+#7 [internal function]: CaracteristicaProcesoController->actionPreguntas('1')
+#8 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#9 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#10 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('preguntas')
+#19 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('CaracteristicaP...')
+#20 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=site/login
+---
+2013/10/13 09:39:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "Factor".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Factor')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=Factor
+---
+2013/10/13 09:40:05 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'preguntas.' in 'on clause'. The SQL statement executed was: SELECT `t`.`id_caracteristica_proceso` AS `t0_c0`, `t`.`titulo` AS `t0_c1`, `t`.`descripcion` AS `t0_c2`, `t`.`numero_caracteristica` AS `t0_c3`, `t`.`id_factor_proceso` AS `t0_c4`, `preguntas`.`id_pregunta_proceso` AS `t1_c0`, `preguntas`.`id_caracteristica_proceso` AS `t1_c1`, `fuentes`.`id_pregunta_proceso` AS `t2_c0`, `fuentes`.`id_fuente_proceso` AS `t2_c1` FROM `caracteristica_proceso` `t`  LEFT OUTER JOIN `caracteristica_pregunta_proceso` `preguntas` ON (`preguntas`.`id_caracteristica_proceso`=`t`.`id_caracteristica_proceso`)  LEFT OUTER JOIN `pregunta_fuente_proceso` `fuentes` ON (`fuentes`.`id_pregunta_proceso`=`preguntas`.``)  WHERE (`t`.`id_caracteristica_proceso`=1).
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (135)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 09:40:05 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'preguntas.' in 'on clause'. The SQL statement executed was: SELECT `t`.`id_caracteristica_proceso` AS `t0_c0`, `t`.`titulo` AS `t0_c1`, `t`.`descripcion` AS `t0_c2`, `t`.`numero_caracteristica` AS `t0_c3`, `t`.`id_factor_proceso` AS `t0_c4`, `preguntas`.`id_pregunta_proceso` AS `t1_c0`, `preguntas`.`id_caracteristica_proceso` AS `t1_c1`, `fuentes`.`id_pregunta_proceso` AS `t2_c0`, `fuentes`.`id_fuente_proceso` AS `t2_c1` FROM `caracteristica_proceso` `t`  LEFT OUTER JOIN `caracteristica_pregunta_proceso` `preguntas` ON (`preguntas`.`id_caracteristica_proceso`=`t`.`id_caracteristica_proceso`)  LEFT OUTER JOIN `pregunta_fuente_proceso` `fuentes` ON (`fuentes`.`id_pregunta_proceso`=`preguntas`.``)  WHERE (`t`.`id_caracteristica_proceso`=1)' in /var/www/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/yii/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/yii/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/yii/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/yii/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/yii/framework/db/ar/CActiveRecord.php(1356): CActiveFinder->query(Object(CDbCriteria), false)
+#5 /var/www/yii/framework/db/ar/CActiveRecord.php(1486): CActiveRecord->query(Object(CDbCriteria))
+#6 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(135): CActiveRecord->findByPk('1')
+#7 [internal function]: CaracteristicaProcesoController->actionPreguntas('1')
+#8 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#9 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#10 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('preguntas')
+#19 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('CaracteristicaP...')
+#20 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=CaracteristicaProceso/index&idFactor=1
+---
+2013/10/13 09:42:54 [error] [php] Invalid argument supplied for foreach() (/var/www/yii/framework/db/ar/CActiveFinder.php:826)
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery()
+#1 /var/www/yii/framework/db/ar/CActiveFinder.php(68): CJoinElement->find()
+#2 /var/www/yii/framework/db/ar/CActiveRecord.php(1356): CActiveFinder->query()
+#3 /var/www/yii/framework/db/ar/CActiveRecord.php(1486): CaracteristicaProceso->query()
+#4 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(135): CaracteristicaProceso->findByPk()
+#5 unknown(0): CaracteristicaProcesoController->actionPreguntas()
+#6 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#7 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#8 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(133): CaracteristicaProcesoController->runAction()
+#10 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#12 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CaracteristicaProcesoController->filterAccessControl()
+#13 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#14 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#15 /var/www/yii/framework/web/CController.php(265): CaracteristicaProcesoController->runActionWithFilters()
+#16 /var/www/yii/framework/web/CWebApplication.php(282): CaracteristicaProcesoController->run()
+#17 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#18 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /var/www/autoevalinpahu/index.php(13): CWebApplication->run()
+REQUEST_URI=/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=1
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (135)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 10:00:59 [error] [exception.CException] exception 'CException' with message 'Property "PreguntaProceso.numero" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('numero')
+#1 /var/www/autoevalinpahu/protected/views/caracteristicaProceso/preguntas.php(21): CActiveRecord->__get('numero')
+#2 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/autoev...')
+#3 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/autoev...', Array, true)
+#4 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/autoev...', Array, true)
+#5 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('preguntas', Array, true)
+#6 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(140): CController->render('preguntas', Array)
+#7 [internal function]: CaracteristicaProcesoController->actionPreguntas('1')
+#8 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#9 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#10 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('preguntas')
+#19 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('CaracteristicaP...')
+#20 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=CaracteristicaProceso/index&idFactor=1
+---
+2013/10/13 11:22:44 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('')
+#9 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('CaracteristicaP...')
+#10 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=CaracteristicaProceso
+---
+2013/10/13 11:42:46 [error] [exception.CDbException] exception 'CDbException' with message 'Table "fuente_proceso" does not have a column named "idProceso".' in /var/www/yii/framework/db/schema/CDbCommandBuilder.php:694
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(1535): CDbCommandBuilder->createColumnCriteria(Object(CMysqlTableSchema), Array, '', Array, '`t`.')
+#1 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(137): CActiveRecord->findAllByAttributes(Array)
+#2 [internal function]: CaracteristicaProcesoController->actionPreguntas('2')
+#3 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#4 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#5 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#12 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('preguntas')
+#14 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('CaracteristicaP...')
+#15 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#16 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=2
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=CaracteristicaProceso/index&idFactor=1
+---
+2013/10/13 12:35:21 [error] [exception.CException] exception 'CException' with message 'Property "PreguntaProceso.fuentes" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('fuentes')
+#1 /var/www/autoevalinpahu/protected/views/caracteristicaProceso/preguntas.php(33): CActiveRecord->__get('fuentes')
+#2 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/autoev...')
+#3 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/autoev...', Array, true)
+#4 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/autoev...', Array, true)
+#5 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('preguntas', Array, true)
+#6 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(143): CController->render('preguntas', Array)
+#7 [internal function]: CaracteristicaProcesoController->actionPreguntas('1')
+#8 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#9 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#10 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('preguntas')
+#19 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('CaracteristicaP...')
+#20 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=CaracteristicaProceso/index&idFactor=1
+---
+2013/10/13 12:39:18 [error] [exception.CDbException] exception 'CDbException' with message 'Relation "fuentes" is not defined in active record class "PreguntaProceso".' in /var/www/yii/framework/db/ar/CActiveFinder.php:226
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveFinder.php(296): CActiveFinder->buildJoinTree(Object(CJoinElement), 'preguntas.fuent...')
+#1 /var/www/yii/framework/db/ar/CActiveFinder.php(48): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
+#2 /var/www/yii/framework/db/ar/CActiveRecord.php(909): CActiveFinder->__construct(Object(CaracteristicaProceso), Array)
+#3 /var/www/yii/framework/db/ar/CActiveRecord.php(1355): CActiveRecord->getActiveFinder(Array)
+#4 /var/www/yii/framework/db/ar/CActiveRecord.php(1486): CActiveRecord->query(Object(CDbCriteria))
+#5 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(136): CActiveRecord->findByPk('1')
+#6 [internal function]: CaracteristicaProcesoController->actionPreguntas('1')
+#7 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#8 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#9 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#16 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('preguntas')
+#18 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('CaracteristicaP...')
+#19 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#20 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=CaracteristicaProceso/index&idFactor=1
+---
+2013/10/13 13:02:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "editarPreguntas".' in /var/www/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(270): CController->missingAction('editarPreguntas')
+#1 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('editarPreguntas')
+#2 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#3 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/editarPreguntas
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=1
+---
+2013/10/13 13:05:13 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('editarPreguntas')
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/editarPreguntas
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=1
+---
+2013/10/13 13:05:55 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('editarPreguntas')
+#9 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#10 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/editarPreguntas
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=1
+---
+2013/10/13 13:07:21 [error] [exception.CException] exception 'CException' with message 'Property "CaracteristicaProceso.id_caracetristica_proceso" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('id_caracetristi...')
+#1 /var/www/autoevalinpahu/protected/views/caracteristicaProceso/preguntas.php(12): CActiveRecord->__get('id_caracetristi...')
+#2 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/autoev...')
+#3 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/autoev...', Array, true)
+#4 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/autoev...', Array, true)
+#5 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('preguntas', Array, true)
+#6 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(143): CController->render('preguntas', Array)
+#7 [internal function]: CaracteristicaProcesoController->actionPreguntas('1')
+#8 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#9 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#10 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('preguntas')
+#19 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('CaracteristicaP...')
+#20 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=CaracteristicaProceso/index&idFactor=1
+---
+2013/10/13 13:24:27 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('')
+#9 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#10 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso
+---
+2013/10/13 15:41:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "guardarPreguntas".' in /var/www/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(270): CController->missingAction('guardarPregunta...')
+#1 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('guardarPregunta...')
+#2 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#3 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/guardarPreguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=1
+---
+2013/10/13 15:42:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "guardarPreguntas".' in /var/www/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(270): CController->missingAction('guardarPregunta...')
+#1 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('guardarPregunta...')
+#2 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#3 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/guardarPreguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=1
+---
+2013/10/13 15:43:39 [error] [exception.CException] exception 'CException' with message 'CaracteristicaProcesoController contains improperly nested widget tags in its view "/var/www/autoevalinpahu/protected/views/caracteristicaProceso/editarPreguntas.php". A CActiveForm widget does not have an endWidget() call.' in /var/www/yii/framework/web/CBaseController.php:101
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/autoev...', Array, true)
+#1 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('editarPreguntas', Array, true)
+#2 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(155): CController->render('editarPreguntas', Array)
+#3 [internal function]: CaracteristicaProcesoController->actionEditarPreguntas('1')
+#4 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#5 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#6 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('EditarPreguntas')
+#15 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#16 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+---
+2013/10/13 18:59:49 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('')
+#9 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#10 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/
+---
+2013/10/13 19:13:08 [error] [exception.CException] exception 'CException' with message 'Property "PreguntaProceso.id_pregunta" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('id_pregunta')
+#1 /var/www/yii/framework/web/helpers/CHtml.php(2529): CActiveRecord->__get('id_pregunta')
+#2 /var/www/yii/framework/web/helpers/CHtml.php(2252): CHtml::resolveValue(Object(PreguntaProceso), 'id_pregunta')
+#3 /var/www/yii/framework/web/helpers/CHtml.php(1609): CHtml::activeInputField('hidden', Object(PreguntaProceso), 'id_pregunta', Array)
+#4 /var/www/yii/framework/web/widgets/CActiveForm.php(756): CHtml::activeHiddenField(Object(PreguntaProceso), '[$i]id_pregunta', Array)
+#5 /var/www/autoevalinpahu/protected/views/caracteristicaProceso/editarPreguntas.php(41): CActiveForm->hiddenField(Object(PreguntaProceso), '[$i]id_pregunta')
+#6 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/autoev...')
+#7 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/autoev...', Array, true)
+#8 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/autoev...', Array, true)
+#9 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('editarPreguntas', Array, true)
+#10 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(155): CController->render('editarPreguntas', Array)
+#11 [internal function]: CaracteristicaProcesoController->actionEditarPreguntas('1')
+#12 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#13 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#14 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('EditarPreguntas')
+#23 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#24 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#25 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=1
+---
+2013/10/13 19:19:19 [error] [php] Undefined variable: CHtml (/var/www/autoevalinpahu/protected/views/caracteristicaProceso/editarPreguntas.php:41)
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(869): CaracteristicaProcesoController->renderFile()
+#1 /var/www/yii/framework/web/CController.php(782): CaracteristicaProcesoController->renderPartial()
+#2 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(155): CaracteristicaProcesoController->render()
+#3 unknown(0): CaracteristicaProcesoController->actionEditarPreguntas()
+#4 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#5 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /var/www/yii/framework/web/filters/CFilterChain.php(133): CaracteristicaProcesoController->runAction()
+#8 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#10 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CaracteristicaProcesoController->filterAccessControl()
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#12 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(265): CaracteristicaProcesoController->runActionWithFilters()
+#14 /var/www/yii/framework/web/CWebApplication.php(282): CaracteristicaProcesoController->run()
+#15 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/autoevalinpahu/index.php(13): CWebApplication->run()
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+in /var/www/autoevalinpahu/protected/views/caracteristicaProceso/editarPreguntas.php (41)
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (155)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 19:19:41 [error] [php] Undefined variable: CHtml (/var/www/autoevalinpahu/protected/views/caracteristicaProceso/editarPreguntas.php:41)
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(869): CaracteristicaProcesoController->renderFile()
+#1 /var/www/yii/framework/web/CController.php(782): CaracteristicaProcesoController->renderPartial()
+#2 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(155): CaracteristicaProcesoController->render()
+#3 unknown(0): CaracteristicaProcesoController->actionEditarPreguntas()
+#4 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#5 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /var/www/yii/framework/web/filters/CFilterChain.php(133): CaracteristicaProcesoController->runAction()
+#8 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#10 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CaracteristicaProcesoController->filterAccessControl()
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#12 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(265): CaracteristicaProcesoController->runActionWithFilters()
+#14 /var/www/yii/framework/web/CWebApplication.php(282): CaracteristicaProcesoController->run()
+#15 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/autoevalinpahu/index.php(13): CWebApplication->run()
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+in /var/www/autoevalinpahu/protected/views/caracteristicaProceso/editarPreguntas.php (41)
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (155)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 19:19:43 [error] [php] Undefined variable: CHtml (/var/www/autoevalinpahu/protected/views/caracteristicaProceso/editarPreguntas.php:41)
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(869): CaracteristicaProcesoController->renderFile()
+#1 /var/www/yii/framework/web/CController.php(782): CaracteristicaProcesoController->renderPartial()
+#2 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(155): CaracteristicaProcesoController->render()
+#3 unknown(0): CaracteristicaProcesoController->actionEditarPreguntas()
+#4 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#5 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /var/www/yii/framework/web/filters/CFilterChain.php(133): CaracteristicaProcesoController->runAction()
+#8 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#10 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CaracteristicaProcesoController->filterAccessControl()
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#12 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(265): CaracteristicaProcesoController->runActionWithFilters()
+#14 /var/www/yii/framework/web/CWebApplication.php(282): CaracteristicaProcesoController->run()
+#15 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/autoevalinpahu/index.php(13): CWebApplication->run()
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+in /var/www/autoevalinpahu/protected/views/caracteristicaProceso/editarPreguntas.php (41)
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (155)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 19:20:36 [error] [exception.CException] exception 'CException' with message 'Property "PreguntaProceso.id_pregunta" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('id_pregunta')
+#1 /var/www/autoevalinpahu/protected/views/caracteristicaProceso/editarPreguntas.php(41): CActiveRecord->__get('id_pregunta')
+#2 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/autoev...')
+#3 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/autoev...', Array, true)
+#4 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/autoev...', Array, true)
+#5 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('editarPreguntas', Array, true)
+#6 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(155): CController->render('editarPreguntas', Array)
+#7 [internal function]: CaracteristicaProcesoController->actionEditarPreguntas('1')
+#8 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#9 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#10 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('EditarPreguntas')
+#19 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#20 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=CaracteristicaProceso/preguntas&idCaracteristica=1
+---
+2013/10/13 19:37:15 [error] [php] Undefined variable: texto (/var/www/autoevalinpahu/protected/views/caracteristicaProceso/editarPreguntas.php:55)
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(869): CaracteristicaProcesoController->renderFile()
+#1 /var/www/yii/framework/web/CController.php(782): CaracteristicaProcesoController->renderPartial()
+#2 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(155): CaracteristicaProcesoController->render()
+#3 unknown(0): CaracteristicaProcesoController->actionEditarPreguntas()
+#4 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#5 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /var/www/yii/framework/web/filters/CFilterChain.php(133): CaracteristicaProcesoController->runAction()
+#8 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#10 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CaracteristicaProcesoController->filterAccessControl()
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#12 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(265): CaracteristicaProcesoController->runActionWithFilters()
+#14 /var/www/yii/framework/web/CWebApplication.php(282): CaracteristicaProcesoController->run()
+#15 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/autoevalinpahu/index.php(13): CWebApplication->run()
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+in /var/www/autoevalinpahu/protected/views/caracteristicaProceso/editarPreguntas.php (55)
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (155)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 21:31:49 [error] [exception.CException] exception 'CException' with message 'CaracteristicaProcesoController and its behaviors do not have a method or closure named "getTableAlias".' in /var/www/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(1484): CComponent->__call('getTableAlias', Array)
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(1484): CaracteristicaProcesoController->getTableAlias(true)
+#2 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(152): CActiveRecord->findByPk('1')
+#3 [internal function]: CaracteristicaProcesoController->actionEditarPreguntas('1')
+#4 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#5 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#6 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('EditarPreguntas')
+#15 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#16 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+---
+2013/10/13 21:32:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "Factor".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Factor')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=Factor
+---
+2013/10/13 22:00:24 [error] [exception.CException] exception 'CException' with message 'Property "FuenteProceso.fuente_proceso" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('fuente_proceso')
+#1 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(159): CActiveRecord->__get('fuente_proceso')
+#2 [internal function]: CaracteristicaProcesoController->actionEditarPreguntas('1')
+#3 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#4 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#5 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#12 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('EditarPreguntas')
+#14 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#15 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#16 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+---
+2013/10/13 22:01:34 [error] [exception.CException] exception 'CException' with message 'Property "FuenteProceso.fuente_proceso" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('fuente_proceso')
+#1 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(159): CActiveRecord->__get('fuente_proceso')
+#2 [internal function]: CaracteristicaProcesoController->actionEditarPreguntas('1')
+#3 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#4 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#5 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#12 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('EditarPreguntas')
+#14 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#15 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#16 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+---
+2013/10/13 22:02:14 [error] [php] Trying to get property of non-object (/var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php:163)
+Stack trace:
+#0 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/yii/framework/web/filters/CFilterChain.php(133): CaracteristicaProcesoController->runAction()
+#3 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CaracteristicaProcesoController->filterAccessControl()
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(265): CaracteristicaProcesoController->runActionWithFilters()
+#9 /var/www/yii/framework/web/CWebApplication.php(282): CaracteristicaProcesoController->run()
+#10 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/autoevalinpahu/index.php(13): CWebApplication->run()
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (163)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 22:02:59 [error] [php] Undefined offset: 2 (/var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php:159)
+Stack trace:
+#0 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/yii/framework/web/filters/CFilterChain.php(133): CaracteristicaProcesoController->runAction()
+#3 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CaracteristicaProcesoController->filterAccessControl()
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(265): CaracteristicaProcesoController->runActionWithFilters()
+#9 /var/www/yii/framework/web/CWebApplication.php(282): CaracteristicaProcesoController->run()
+#10 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/autoevalinpahu/index.php(13): CWebApplication->run()
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (159)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 22:05:31 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'id_pregunta_proceso_2'. The SQL statement executed was: INSERT INTO `pregunta_fuente_proceso` (`id_fuente_proceso`, `id_pregunta_proceso`) VALUES (:yp0, :yp1).
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (166)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 22:05:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'id_pregunta_proceso_2'. The SQL statement executed was: INSERT INTO `pregunta_fuente_proceso` (`id_fuente_proceso`, `id_pregunta_proceso`) VALUES (:yp0, :yp1)' in /var/www/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(166): CActiveRecord->save()
+#3 [internal function]: CaracteristicaProcesoController->actionEditarPreguntas('1')
+#4 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#5 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#6 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('EditarPreguntas')
+#15 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#16 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+---
+2013/10/13 22:06:20 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'id_fuente_proceso_2'. The SQL statement executed was: INSERT INTO `pregunta_fuente_proceso` (`id_fuente_proceso`, `id_pregunta_proceso`) VALUES (:yp0, :yp1).
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (168)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 22:06:20 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'id_fuente_proceso_2'. The SQL statement executed was: INSERT INTO `pregunta_fuente_proceso` (`id_fuente_proceso`, `id_pregunta_proceso`) VALUES (:yp0, :yp1)' in /var/www/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(168): CActiveRecord->save()
+#3 [internal function]: CaracteristicaProcesoController->actionEditarPreguntas('1')
+#4 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#5 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#6 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('EditarPreguntas')
+#15 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#16 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+---
+2013/10/13 22:12:03 [error] [php] Undefined index: fuentes (/var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php:163)
+Stack trace:
+#0 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/yii/framework/web/filters/CFilterChain.php(133): CaracteristicaProcesoController->runAction()
+#3 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CaracteristicaProcesoController->filterAccessControl()
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(265): CaracteristicaProcesoController->runActionWithFilters()
+#9 /var/www/yii/framework/web/CWebApplication.php(282): CaracteristicaProcesoController->run()
+#10 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/autoevalinpahu/index.php(13): CWebApplication->run()
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (163)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 22:12:23 [error] [php] Undefined index: fuentes (/var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php:163)
+Stack trace:
+#0 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/yii/framework/web/filters/CFilterChain.php(133): CaracteristicaProcesoController->runAction()
+#3 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CaracteristicaProcesoController->filterAccessControl()
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(265): CaracteristicaProcesoController->runActionWithFilters()
+#9 /var/www/yii/framework/web/CWebApplication.php(282): CaracteristicaProcesoController->run()
+#10 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/autoevalinpahu/index.php(13): CWebApplication->run()
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (163)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 22:15:33 [error] [php] Undefined index: fuentes (/var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php:163)
+Stack trace:
+#0 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/yii/framework/web/filters/CFilterChain.php(133): CaracteristicaProcesoController->runAction()
+#3 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CaracteristicaProcesoController->filterAccessControl()
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(265): CaracteristicaProcesoController->runActionWithFilters()
+#9 /var/www/yii/framework/web/CWebApplication.php(282): CaracteristicaProcesoController->run()
+#10 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/autoevalinpahu/index.php(13): CWebApplication->run()
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (163)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 22:16:11 [error] [php] Undefined index: fuentes (/var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php:164)
+Stack trace:
+#0 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/yii/framework/web/filters/CFilterChain.php(133): CaracteristicaProcesoController->runAction()
+#3 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CaracteristicaProcesoController->filterAccessControl()
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(265): CaracteristicaProcesoController->runActionWithFilters()
+#9 /var/www/yii/framework/web/CWebApplication.php(282): CaracteristicaProcesoController->run()
+#10 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/autoevalinpahu/index.php(13): CWebApplication->run()
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (164)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 22:21:57 [error] [php] Undefined index: fuentes (/var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php:175)
+Stack trace:
+#0 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/yii/framework/web/filters/CFilterChain.php(133): CaracteristicaProcesoController->runAction()
+#3 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CaracteristicaProcesoController->filterAccessControl()
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(265): CaracteristicaProcesoController->runActionWithFilters()
+#9 /var/www/yii/framework/web/CWebApplication.php(282): CaracteristicaProcesoController->run()
+#10 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/autoevalinpahu/index.php(13): CWebApplication->run()
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (175)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 22:27:11 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('editarPreguntas')
+#9 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#10 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/editarPreguntas
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+---
+2013/10/13 22:34:27 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'id_pregunta_proceso_2'. The SQL statement executed was: INSERT INTO `pregunta_fuente_proceso` (`id_fuente_proceso`, `id_pregunta_proceso`) VALUES (:yp0, :yp1).
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (170)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 22:34:27 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'id_pregunta_proceso_2'. The SQL statement executed was: INSERT INTO `pregunta_fuente_proceso` (`id_fuente_proceso`, `id_pregunta_proceso`) VALUES (:yp0, :yp1)' in /var/www/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(170): CActiveRecord->save()
+#3 [internal function]: CaracteristicaProcesoController->actionEditarPreguntas('1')
+#4 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#5 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#6 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('EditarPreguntas')
+#15 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#16 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+---
+2013/10/13 22:34:35 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'id_pregunta_proceso_2'. The SQL statement executed was: INSERT INTO `pregunta_fuente_proceso` (`id_fuente_proceso`, `id_pregunta_proceso`) VALUES (:yp0, :yp1).
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (170)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 22:34:35 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'id_pregunta_proceso_2'. The SQL statement executed was: INSERT INTO `pregunta_fuente_proceso` (`id_fuente_proceso`, `id_pregunta_proceso`) VALUES (:yp0, :yp1)' in /var/www/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(170): CActiveRecord->save()
+#3 [internal function]: CaracteristicaProcesoController->actionEditarPreguntas('1')
+#4 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#5 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#6 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('EditarPreguntas')
+#15 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#16 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+---
+2013/10/13 22:42:46 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'id_pregunta_proceso_2'. The SQL statement executed was: INSERT INTO `pregunta_fuente_proceso` (`id_fuente_proceso`, `id_pregunta_proceso`) VALUES (:yp0, :yp1).
+in /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php (169)
+in /var/www/autoevalinpahu/index.php (13)
+2013/10/13 22:42:46 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'id_pregunta_proceso_2'. The SQL statement executed was: INSERT INTO `pregunta_fuente_proceso` (`id_fuente_proceso`, `id_pregunta_proceso`) VALUES (:yp0, :yp1)' in /var/www/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /var/www/autoevalinpahu/protected/controllers/CaracteristicaProcesoController.php(169): CActiveRecord->save()
+#3 [internal function]: CaracteristicaProcesoController->actionEditarPreguntas('1')
+#4 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CaracteristicaProcesoController), Array)
+#5 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CaracteristicaProcesoController), Object(ReflectionMethod), Array)
+#6 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('EditarPreguntas')
+#15 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#16 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/autoevalinpahu/index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=caracteristicaProceso/EditarPreguntas&idCaracteristica=1
+---
