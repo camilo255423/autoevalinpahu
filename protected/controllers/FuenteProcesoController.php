@@ -120,13 +120,21 @@ class FuenteProcesoController extends Controller
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex()
+        public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('FuenteProceso');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+        $idProceso=Yii::app()->session['idProceso'];
+	$model = FuenteProceso::model()->findAllByAttributes(array('id_proceso'=>$idProceso));
+        $this->render('index',array(
+			'model'=>$model,
 		));
-	}
+        }
+        public function actionInstrumentoFuente($idFuente)
+        {
+            $fuente = FuenteProceso::model()->findByPk($idFuente);
+        $this->render('instrumentoFuente',array(
+			'fuente'=>$fuente,
+		));
+        }
 
 	/**
 	 * Manages all models.
