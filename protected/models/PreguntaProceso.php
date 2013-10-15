@@ -48,7 +48,7 @@ class PreguntaProceso extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
                         'fuentes' => array(self::MANY_MANY, 'FuenteProceso', 'pregunta_fuente_proceso(id_pregunta_proceso,id_fuente_proceso)'),
-			'caracteristicaPreguntaProcesos' => array(self::HAS_MANY, 'CaracteristicaPreguntaProceso', 'id_pregunta_proceso'),
+			'caracteristicas' => array(self::HAS_MANY, 'CaracteristicaPreguntaProceso', 'id_pregunta_proceso'),
 			'preguntaFuenteProceso' => array(self::HAS_ONE, 'PreguntaFuenteProceso', 'id_pregunta_proceso'),
 			'idTipoRespuesta' => array(self::BELONGS_TO, 'TipoRespuesta', 'id_tipo_respuesta'),
 		);

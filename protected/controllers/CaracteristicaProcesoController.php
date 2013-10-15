@@ -32,7 +32,7 @@ class CaracteristicaProcesoController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','preguntas','editarPreguntas'),
+				'actions'=>array('create','update','preguntas','editarPreguntas','agregarPreguntas'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -176,7 +176,8 @@ class CaracteristicaProcesoController extends Controller
            
              $this->redirect(array('preguntas','idCaracteristica'=>$_POST['idCaracteristica']));
             
-        }    
+        }
+        
         $caracteristica = CaracteristicaProceso::model()->with('preguntas.fuentes')->findByPk($idCaracteristica);	  
         
         
@@ -186,10 +187,58 @@ class CaracteristicaProcesoController extends Controller
                         'fuentes'=>$fuentes,
 		));
         }
-	/**
+	function actionAgregarPreguntas($idCaracteristica)
+        {
+        $idProceso = Yii::app()->session['idProceso'];     
+      
+        if(isset($_POST['pregunta']))
+        {
+            $preguntas= CaracteristicaPreguntaProceso::model()->findAllByAttributes(array('id_caracteristica_proceso'=>$idCaracteristica));
+            foreach($preguntas as $i=>$pregunta)
+            {        
+                if(isset($_POST['pregunta'][$pregunta->id_pregunta_proceso]))
+                {    
+               
+                if($_POST['pregunta'][$pregunta->id_pregunta_proceso]==0)
+                {
+                    CaracteristicaPreguntaProceso::model()->deleteAllByAttributes(array('id_caracteristica_proceso'=>$idCaracteristica,'id_pregunta_proceso'=>$pregunta->id_pregunta_proceso));
+                    
+                }
+                unset($_POST['pregunta'][$pregunta->id_pregunta_proceso]);
+                }
+            }
+           
+            foreach ($_POST['pregunta'] as $i=>$pregunta)
+            {
+             
+              if($pregunta)
+               {    
+               $model = new CaracteristicaPreguntaProceso();
+               $model->id_caracteristica_proceso=$idCaracteristica;
+               $model->id_pregunta_proceso=$i;
+               $model->save();
+               } 
+            }
+
+             $this->redirect(array('preguntas','idCaracteristica'=>$_POST['idCaracteristica']));
+          
+            }
+        $preguntas= PreguntaProceso::model()->findAll();
+        $caracteristica = CaracteristicaProceso::model()->findByPk($idCaracteristica);
+       
+        $this->render('agregarPreguntas',array(
+			
+                        'preguntas'=>$preguntas,
+                        'caracteristica'=>$caracteristica,
+                        
+		));
+       
+        }
+        /**
 	 * Manages all models.
 	 */
-	public function actionAdmin()
+	
+        public function actionAdmin()
 	{
 		$model=new CaracteristicaProceso('search');
 		$model->unsetAttributes();  // clear any default values

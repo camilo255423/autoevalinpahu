@@ -7,9 +7,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create FactorProceso', 'url'=>array('create')),
-	array('label'=>'Manage FactorProceso', 'url'=>array('admin')),
-    array('label'=>'Editar Preguntas', 'url'=>array('EditarPreguntas&idCaracteristica='.$caracteristica->id_caracteristica_proceso)),
+
+        array('label'=>'Editar Preguntas', 'url'=>array('EditarPreguntas&idCaracteristica='.$caracteristica->id_caracteristica_proceso)),
+        array('label'=>'Agregar/Quitar Preguntas', 'url'=>array('AgregarPreguntas&idCaracteristica='.$caracteristica->id_caracteristica_proceso)),
 );
 ?>
 
