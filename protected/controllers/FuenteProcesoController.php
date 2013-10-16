@@ -130,7 +130,25 @@ class FuenteProcesoController extends Controller
         }
         public function actionInstrumentoFuente($idFuente)
         {
-            $fuente = FuenteProceso::model()->findByPk($idFuente);
+            $i=0;
+            if($_POST)
+            {
+                $idFuente = $_POST['idFuente'];
+                foreach($_POST['PreguntaProceso'] as $pregunta)
+                {
+                $pregunta = PreguntaFuenteProceso::model()->findByAttributes(array('id_pregunta_proceso'=>$pregunta['id_pregunta_proceso'],'id_fuente_proceso'=>$idFuente));
+                if($pregunta!=null)
+                {
+                    $pregunta->orden = $i;
+                    $pregunta->save();
+                    $i++;
+                    
+                }
+                }
+                  
+            }
+          
+        $fuente = FuenteProceso::model()->findByPk($idFuente);    
         $this->render('instrumentoFuente',array(
 			'fuente'=>$fuente,
 		));
