@@ -12,12 +12,12 @@ $this->menu=array(
 );
 ?>
 
-<h1>Factores</h1>
+<h1>Fuentes</h1>
 
 <?php foreach ($model as $fuente) {?>
     <?php $s=$fuente->nombre; ?>
 
 <div>
-    <?php echo CHtml::link($s, array('fuenteProceso/view', 'idFuente'=>$fuente->id_fuente_proceso)); ?>
+    <?php echo CHtml::link($s, array('fuenteProceso/instrumentoFuente', 'idFuente'=>$fuente->id_fuente_proceso)); ?>
 </div>
 <?php } ?>

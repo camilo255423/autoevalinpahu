@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Create FactorProceso', 'url'=>array('create')),
 	array('label'=>'Manage FactorProceso', 'url'=>array('admin')),
-    array('label'=>'Guardar', 'url'=>array('editarPreguntas')),
+        array('label'=>'Guardar', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#caracteristica-agregar-preguntas').submit()")),
 );
 ?>
 <div class="form">
