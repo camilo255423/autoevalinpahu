@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.8.1deb1
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Oct 14, 2013 at 05:41 PM
--- Server version: 5.5.32-0ubuntu0.13.04.1
--- PHP Version: 5.4.9-4ubuntu2.3
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 16-10-2013 a las 16:39:45
+-- Versión del servidor: 5.5.27
+-- Versión de PHP: 5.4.7
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `autoevalinpahu`
+-- Base de datos: `autoevalinpahu`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `caracteristica_pregunta_proceso`
+-- Estructura de tabla para la tabla `caracteristica_pregunta_proceso`
 --
 
 CREATE TABLE IF NOT EXISTS `caracteristica_pregunta_proceso` (
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `caracteristica_pregunta_proceso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `caracteristica_pregunta_proceso`
+-- Volcado de datos para la tabla `caracteristica_pregunta_proceso`
 --
 
 INSERT INTO `caracteristica_pregunta_proceso` (`id_pregunta_proceso`, `id_caracteristica_proceso`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `caracteristica_pregunta_proceso` (`id_pregunta_proceso`, `id_caract
 -- --------------------------------------------------------
 
 --
--- Table structure for table `caracteristica_proceso`
+-- Estructura de tabla para la tabla `caracteristica_proceso`
 --
 
 CREATE TABLE IF NOT EXISTS `caracteristica_proceso` (
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `caracteristica_proceso` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `caracteristica_proceso`
+-- Volcado de datos para la tabla `caracteristica_proceso`
 --
 
 INSERT INTO `caracteristica_proceso` (`id_caracteristica_proceso`, `titulo`, `descripcion`, `numero_caracteristica`, `id_factor_proceso`) VALUES
@@ -68,7 +68,7 @@ INSERT INTO `caracteristica_proceso` (`id_caracteristica_proceso`, `titulo`, `de
 -- --------------------------------------------------------
 
 --
--- Table structure for table `factor_proceso`
+-- Estructura de tabla para la tabla `factor_proceso`
 --
 
 CREATE TABLE IF NOT EXISTS `factor_proceso` (
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `factor_proceso` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `factor_proceso`
+-- Volcado de datos para la tabla `factor_proceso`
 --
 
 INSERT INTO `factor_proceso` (`id_factor_proceso`, `id_proceso`, `titulo`, `descripcion`, `numero_factor`) VALUES
@@ -94,7 +94,7 @@ INSERT INTO `factor_proceso` (`id_factor_proceso`, `id_proceso`, `titulo`, `desc
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fuente_proceso`
+-- Estructura de tabla para la tabla `fuente_proceso`
 --
 
 CREATE TABLE IF NOT EXISTS `fuente_proceso` (
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `fuente_proceso` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `fuente_proceso`
+-- Volcado de datos para la tabla `fuente_proceso`
 --
 
 INSERT INTO `fuente_proceso` (`id_fuente_proceso`, `nombre`, `descripcion`, `enunciado`, `id_proceso`) VALUES
@@ -120,7 +120,7 @@ INSERT INTO `fuente_proceso` (`id_fuente_proceso`, `nombre`, `descripcion`, `enu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `opciones_respuesta`
+-- Estructura de tabla para la tabla `opciones_respuesta`
 --
 
 CREATE TABLE IF NOT EXISTS `opciones_respuesta` (
@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `opciones_respuesta` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `opciones_respuesta`
+-- Volcado de datos para la tabla `opciones_respuesta`
 --
 
 INSERT INTO `opciones_respuesta` (`id_opcion`, `respuesta`, `valor`, `id_tipo_respuesta`) VALUES
@@ -146,20 +146,29 @@ INSERT INTO `opciones_respuesta` (`id_opcion`, `respuesta`, `valor`, `id_tipo_re
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pregunta_fuente_proceso`
+-- Estructura de tabla para la tabla `pregunta_fuente_proceso`
 --
 
 CREATE TABLE IF NOT EXISTS `pregunta_fuente_proceso` (
   `id_pregunta_proceso` int(11) NOT NULL,
   `id_fuente_proceso` int(11) NOT NULL,
+  `orden` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_pregunta_proceso`,`id_fuente_proceso`),
   KEY `id_fuente_proceso` (`id_fuente_proceso`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `pregunta_fuente_proceso`
+--
+
+INSERT INTO `pregunta_fuente_proceso` (`id_pregunta_proceso`, `id_fuente_proceso`, `orden`) VALUES
+(1, 1, 0),
+(2, 1, 0);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pregunta_proceso`
+-- Estructura de tabla para la tabla `pregunta_proceso`
 --
 
 CREATE TABLE IF NOT EXISTS `pregunta_proceso` (
@@ -173,7 +182,7 @@ CREATE TABLE IF NOT EXISTS `pregunta_proceso` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `pregunta_proceso`
+-- Volcado de datos para la tabla `pregunta_proceso`
 --
 
 INSERT INTO `pregunta_proceso` (`id_pregunta_proceso`, `enunciado`, `id_tipo_respuesta`, `id_proceso`) VALUES
@@ -183,7 +192,7 @@ INSERT INTO `pregunta_proceso` (`id_pregunta_proceso`, `enunciado`, `id_tipo_res
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proceso`
+-- Estructura de tabla para la tabla `proceso`
 --
 
 CREATE TABLE IF NOT EXISTS `proceso` (
@@ -196,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `proceso` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `proceso`
+-- Volcado de datos para la tabla `proceso`
 --
 
 INSERT INTO `proceso` (`id_proceso`, `fecha_inicio`, `fecha_fin`, `id_tipo_proceso`, `descripcion`) VALUES
@@ -205,7 +214,7 @@ INSERT INTO `proceso` (`id_proceso`, `fecha_inicio`, `fecha_fin`, `id_tipo_proce
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipo_proceso`
+-- Estructura de tabla para la tabla `tipo_proceso`
 --
 
 CREATE TABLE IF NOT EXISTS `tipo_proceso` (
@@ -215,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `tipo_proceso` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `tipo_proceso`
+-- Volcado de datos para la tabla `tipo_proceso`
 --
 
 INSERT INTO `tipo_proceso` (`id_tipo_proceso`, `nombre`) VALUES
@@ -225,7 +234,7 @@ INSERT INTO `tipo_proceso` (`id_tipo_proceso`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipo_respuesta`
+-- Estructura de tabla para la tabla `tipo_respuesta`
 --
 
 CREATE TABLE IF NOT EXISTS `tipo_respuesta` (
@@ -235,63 +244,63 @@ CREATE TABLE IF NOT EXISTS `tipo_respuesta` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `tipo_respuesta`
+-- Volcado de datos para la tabla `tipo_respuesta`
 --
 
 INSERT INTO `tipo_respuesta` (`id_tipo_respuesta`, `titulo`) VALUES
 (1, 'escala 1-5 acuerdo - desacuerdo');
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `caracteristica_pregunta_proceso`
+-- Filtros para la tabla `caracteristica_pregunta_proceso`
 --
 ALTER TABLE `caracteristica_pregunta_proceso`
   ADD CONSTRAINT `caracteristica_pregunta_proceso_ibfk_1` FOREIGN KEY (`id_pregunta_proceso`) REFERENCES `pregunta_proceso` (`id_pregunta_proceso`),
   ADD CONSTRAINT `caracteristica_pregunta_proceso_ibfk_2` FOREIGN KEY (`id_caracteristica_proceso`) REFERENCES `caracteristica_proceso` (`id_caracteristica_proceso`);
 
 --
--- Constraints for table `caracteristica_proceso`
+-- Filtros para la tabla `caracteristica_proceso`
 --
 ALTER TABLE `caracteristica_proceso`
   ADD CONSTRAINT `caracteristica_proceso_ibfk_1` FOREIGN KEY (`id_factor_proceso`) REFERENCES `factor_proceso` (`id_factor_proceso`);
 
 --
--- Constraints for table `factor_proceso`
+-- Filtros para la tabla `factor_proceso`
 --
 ALTER TABLE `factor_proceso`
   ADD CONSTRAINT `factor_proceso_ibfk_1` FOREIGN KEY (`id_proceso`) REFERENCES `proceso` (`id_proceso`);
 
 --
--- Constraints for table `fuente_proceso`
+-- Filtros para la tabla `fuente_proceso`
 --
 ALTER TABLE `fuente_proceso`
   ADD CONSTRAINT `fuente_proceso_ibfk_1` FOREIGN KEY (`id_proceso`) REFERENCES `proceso` (`id_proceso`);
 
 --
--- Constraints for table `opciones_respuesta`
+-- Filtros para la tabla `opciones_respuesta`
 --
 ALTER TABLE `opciones_respuesta`
   ADD CONSTRAINT `opciones_respuesta_ibfk_1` FOREIGN KEY (`id_tipo_respuesta`) REFERENCES `tipo_respuesta` (`id_tipo_respuesta`);
 
 --
--- Constraints for table `pregunta_fuente_proceso`
+-- Filtros para la tabla `pregunta_fuente_proceso`
 --
 ALTER TABLE `pregunta_fuente_proceso`
   ADD CONSTRAINT `pregunta_fuente_proceso_ibfk_1` FOREIGN KEY (`id_pregunta_proceso`) REFERENCES `pregunta_proceso` (`id_pregunta_proceso`),
   ADD CONSTRAINT `pregunta_fuente_proceso_ibfk_2` FOREIGN KEY (`id_fuente_proceso`) REFERENCES `fuente_proceso` (`id_fuente_proceso`);
 
 --
--- Constraints for table `pregunta_proceso`
+-- Filtros para la tabla `pregunta_proceso`
 --
 ALTER TABLE `pregunta_proceso`
   ADD CONSTRAINT `pregunta_proceso_ibfk_1` FOREIGN KEY (`id_tipo_respuesta`) REFERENCES `tipo_respuesta` (`id_tipo_respuesta`),
   ADD CONSTRAINT `pregunta_proceso_ibfk_2` FOREIGN KEY (`id_proceso`) REFERENCES `proceso` (`id_proceso`);
 
 --
--- Constraints for table `proceso`
+-- Filtros para la tabla `proceso`
 --
 ALTER TABLE `proceso`
   ADD CONSTRAINT `proceso_ibfk_1` FOREIGN KEY (`id_proceso`) REFERENCES `tipo_proceso` (`id_tipo_proceso`);
