@@ -134,6 +134,9 @@ class FuenteProcesoController extends Controller
             if($_POST)
             {
                 $idFuente = $_POST['idFuente'];
+                $fuente = FuenteProceso::model()->findByPk($idFuente);
+                $fuente->enunciado = $_POST['FuenteProceso']['enunciado'];
+                $fuente->save();
                 foreach($_POST['PreguntaProceso'] as $pregunta)
                 {
                 $pregunta = PreguntaFuenteProceso::model()->findByAttributes(array('id_pregunta_proceso'=>$pregunta['id_pregunta_proceso'],'id_fuente_proceso'=>$idFuente));

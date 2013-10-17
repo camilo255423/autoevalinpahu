@@ -36,7 +36,7 @@ $this->menu=array(
 </colgroup>
     
 <tbody>
-        
+<?php echo $form->textArea($fuente, 'enunciado',array('placeholder'=>'digite el enunciado del instrumento...','rows'=>'5','cols'=>'90')); ?>        
 <?php foreach ($fuente->preguntas as $i=>$pregunta) {?>
     
 
