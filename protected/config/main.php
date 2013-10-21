@@ -16,6 +16,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+                'application.extensions.*',
 	),
 
 	'modules'=>array(
@@ -32,10 +33,16 @@ return array(
 
 	// application components
 	'components'=>array(
+            
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+                    
 		),
+            'excel'=>array(
+            'class'=>'application.extensions.PHPExcel',
+                ),
+            
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(

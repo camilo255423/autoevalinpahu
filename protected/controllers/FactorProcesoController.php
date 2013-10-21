@@ -121,9 +121,16 @@ class FactorProcesoController extends Controller
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex($idProceso)
+	public function actionIndex($idProceso=-1)
 	{
+        if($idProceso!=-1)
+        {
         Yii::app()->session['idProceso'] = $idProceso;
+        }
+        else
+        {
+            $idProceso = Yii::app()->session['idProceso'] ;
+        }    
 	$model = FactorProceso::model()->findAllByAttributes(array('id_proceso'=>$idProceso),array('order'=>'numero_factor'));
         $this->render('index',array(
 			'model'=>$model,
