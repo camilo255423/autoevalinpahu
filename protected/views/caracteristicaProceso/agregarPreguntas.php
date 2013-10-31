@@ -7,8 +7,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create FactorProceso', 'url'=>array('create')),
-	array('label'=>'Manage FactorProceso', 'url'=>array('admin')),
+	array('label'=>'Crear Pregunta', 'url'=>array('preguntaProceso/create&idCaracteristica='.$caracteristica->id_caracteristica_proceso)),
         array('label'=>'Guardar', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#caracteristica-agregar-preguntas').submit()")),
 );
 ?>

@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List FactorProceso', 'url'=>array('index')),
-	array('label'=>'Create FactorProceso', 'url'=>array('create')),
-	array('label'=>'View FactorProceso', 'url'=>array('view', 'id'=>$model->id_factor_proceso)),
-	array('label'=>'Manage FactorProceso', 'url'=>array('admin')),
+	array('label'=>'Listar Factores', 'url'=>array('index')),
+	array('label'=>'Crear Factor', 'url'=>array('create')),
+	array('label'=>'Ver Factor', 'url'=>array('view', 'id'=>$model->id_factor_proceso)),
+	array('label'=>'Modificar Factores', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update FactorProceso <?php echo $model->id_factor_proceso; ?></h1>
+<h1>Actualizar Factor <?php echo $model->id_factor_proceso; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

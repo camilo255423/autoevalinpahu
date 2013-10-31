@@ -8,14 +8,13 @@
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'pregunta-proceso-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
+        'enableClientValidation'=>true,
+	'clientOptions'=>array(
+		'validateOnSubmit'=>true,
+	),
 )); ?>
-
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+<?php echo CHtml::hiddenField("idCaracteristica",$idCaracteristica);?>
+	<p class="note">Campos con<span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -25,11 +24,11 @@
 		<?php echo $form->error($model,'enunciado'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'id_tipo_respuesta'); ?>
-		<?php echo $form->textField($model,'id_tipo_respuesta'); ?>
-		<?php echo $form->error($model,'id_tipo_respuesta'); ?>
-	</div>
+	 <td>
+             <div>Tipo de Respuesta: </div>   
+         <?php echo $form->dropDownList($model, "id_tipo_respuesta", CHtml::listData(TipoRespuesta::model()->findAll(), 'id_tipo_respuesta','titulo'),array('empty'=>'Seleccionar...')); ?>
+         <?php echo $form->error($model, "id_tipo_respuesta"); ?>
+         </td>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

@@ -63,7 +63,7 @@ class CaracteristicaProcesoController extends Controller
 	public function actionCreate()
 	{
 		$model=new CaracteristicaProceso;
-
+                $idProceso = Yii::app()->session['idProceso'];
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -76,6 +76,7 @@ class CaracteristicaProcesoController extends Controller
 
 		$this->render('create',array(
 			'model'=>$model,
+                        'idProceso'=>$idProceso
 		));
 	}
 

@@ -60,22 +60,25 @@ class PreguntaProcesoController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($idCaracteristica)
 	{
 		$model=new PreguntaProceso;
-
+                
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['PreguntaProceso']))
 		{
 			$model->attributes=$_POST['PreguntaProceso'];
+                        $model->id_proceso= Yii::app()->session['idProceso'];
+                        $idCaracteristica=$_POST['idCaracteristica'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_pregunta_proceso));
+				$this->redirect(array('caracteristicaProceso/agregarPreguntas&idCaracteristica='.$idCaracteristica));
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
+                        'idCaracteristica'=>$idCaracteristica,
 		));
 	}
 

@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List FactorProceso', 'url'=>array('index')),
-	array('label'=>'Create FactorProceso', 'url'=>array('create')),
+	array('label'=>'Listar Factores', 'url'=>array('index')),
+	array('label'=>'Crear Factor', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

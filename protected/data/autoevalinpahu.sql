@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 24, 2013 at 10:15 PM
+-- Generation Time: Oct 30, 2013 at 09:31 PM
 -- Server version: 5.5.32-0ubuntu0.13.04.1
 -- PHP Version: 5.4.9-4ubuntu2.3
 
@@ -39,7 +39,10 @@ CREATE TABLE IF NOT EXISTS `caracteristica_pregunta_proceso` (
 
 INSERT INTO `caracteristica_pregunta_proceso` (`id_pregunta_proceso`, `id_caracteristica_proceso`) VALUES
 (1, 1),
-(2, 1);
+(2, 1),
+(6, 3),
+(7, 3),
+(8, 3);
 
 -- --------------------------------------------------------
 
@@ -55,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `caracteristica_proceso` (
   `id_factor_proceso` int(11) NOT NULL,
   PRIMARY KEY (`id_caracteristica_proceso`),
   KEY `id_factor_proceso` (`id_factor_proceso`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `caracteristica_proceso`
@@ -63,7 +66,8 @@ CREATE TABLE IF NOT EXISTS `caracteristica_proceso` (
 
 INSERT INTO `caracteristica_proceso` (`id_caracteristica_proceso`, `titulo`, `descripcion`, `numero_caracteristica`, `id_factor_proceso`) VALUES
 (1, 'Característica 1', '', 1, 1),
-(2, 'Característica 2', '', 2, 1);
+(2, 'Característica 2', '', 2, 1),
+(3, 'Característica 23', 'xxx', 23, 1);
 
 -- --------------------------------------------------------
 
@@ -113,8 +117,8 @@ CREATE TABLE IF NOT EXISTS `fuente_proceso` (
 
 INSERT INTO `fuente_proceso` (`id_fuente_proceso`, `nombre`, `descripcion`, `enunciado`, `id_proceso`) VALUES
 (1, 'Estudiantes', '', 'otra cosa', 1),
-(2, 'Profesores', '', '', 1),
-(3, 'Administrativos', '', '', 1),
+(2, 'Profesores', '', 'enunciado para profesores...', 1),
+(3, 'Administrativos', '', 'preguntas para administrativos', 1),
 (4, 'Directivos', '', '', 1);
 
 -- --------------------------------------------------------
@@ -163,7 +167,14 @@ CREATE TABLE IF NOT EXISTS `pregunta_fuente_proceso` (
 
 INSERT INTO `pregunta_fuente_proceso` (`id_pregunta_proceso`, `id_fuente_proceso`, `orden`) VALUES
 (1, 1, 0),
-(2, 1, 1);
+(2, 1, 1),
+(6, 1, 0),
+(6, 2, 0),
+(6, 3, 0),
+(7, 2, 1),
+(7, 3, 1),
+(8, 2, 2),
+(8, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -179,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `pregunta_proceso` (
   PRIMARY KEY (`id_pregunta_proceso`),
   KEY `id_tipo_respuesta` (`id_tipo_respuesta`),
   KEY `id_proceso` (`id_proceso`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `pregunta_proceso`
@@ -187,7 +198,11 @@ CREATE TABLE IF NOT EXISTS `pregunta_proceso` (
 
 INSERT INTO `pregunta_proceso` (`id_pregunta_proceso`, `enunciado`, `id_tipo_respuesta`, `id_proceso`) VALUES
 (1, 'La Misión de INPAHU está en directa concordancia con la naturaleza de la Institución, su tradición, objetivos y logros académicos en la formación integral de personas autónomas, con espiritu emprendedor, actitud investigativa, capaces de adoptar, aplicar y transferir los conocimientos científicos, técnicos y tecnológicos a sus áreas de competencia, a las nuevas condiciones empresariales y a la realidad del país.', 1, 1),
-(2, 'Los procesos académicos y administrativos de INPAHU están en coherencia con su Misión y son pertinentes para garantizar su desarrollo a cabalidad.', 1, 1);
+(2, 'Los procesos académicos y administrativos de INPAHU están en coherencia con su Misión y son pertinentes para garantizar su desarrollo a cabalidad.', 1, 1),
+(6, 'pregunta...', 1, 1),
+(7, 'pregunta otra...', 1, 1),
+(8, 'pregunta otra...2', 1, 1),
+(9, 'pregunta otra 3...', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -210,6 +225,37 @@ CREATE TABLE IF NOT EXISTS `proceso` (
 
 INSERT INTO `proceso` (`id_proceso`, `fecha_inicio`, `fecha_fin`, `id_tipo_proceso`, `descripcion`) VALUES
 (1, '2013-10-12', '2013-11-14', 1, 'Proceso de prueba');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `respuesta`
+--
+
+CREATE TABLE IF NOT EXISTS `respuesta` (
+  `id_usuario_proceso` int(11) NOT NULL,
+  `id_fuente_proceso` int(11) NOT NULL,
+  `id_pregunta_proceso` int(11) NOT NULL,
+  `id_opcion` int(11) NOT NULL,
+  PRIMARY KEY (`id_usuario_proceso`,`id_fuente_proceso`,`id_pregunta_proceso`),
+  KEY `id_fuente_proceso` (`id_fuente_proceso`),
+  KEY `id_pregunta_proceso` (`id_pregunta_proceso`),
+  KEY `id_opcion` (`id_opcion`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `respuesta`
+--
+
+INSERT INTO `respuesta` (`id_usuario_proceso`, `id_fuente_proceso`, `id_pregunta_proceso`, `id_opcion`) VALUES
+(79628676, 2, 6, 1),
+(79628676, 3, 6, 1),
+(79628676, 3, 8, 1),
+(79628676, 2, 8, 2),
+(79628676, 1, 2, 3),
+(79628676, 3, 7, 3),
+(79628676, 2, 7, 4),
+(79628676, 1, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -260,12 +306,19 @@ CREATE TABLE IF NOT EXISTS `usuario_fuente_proceso` (
   `id_usuario_proceso` int(11) NOT NULL,
   `usuario_proceso` varchar(200) NOT NULL,
   `id_fuente_proceso` int(11) NOT NULL,
-  `id_opcion` int(11) NOT NULL,
   PRIMARY KEY (`id_usuario_proceso`,`id_fuente_proceso`),
   KEY `id_usuario_proceso` (`id_usuario_proceso`),
-  KEY `id_fuente_proceso` (`id_fuente_proceso`),
-  KEY `id_opcion` (`id_opcion`)
+  KEY `id_fuente_proceso` (`id_fuente_proceso`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `usuario_fuente_proceso`
+--
+
+INSERT INTO `usuario_fuente_proceso` (`id_usuario_proceso`, `usuario_proceso`, `id_fuente_proceso`) VALUES
+(79628676, '79628676', 1),
+(79628676, '79628676', 2),
+(79628676, '79628676', 3);
 
 --
 -- Constraints for dumped tables
@@ -323,11 +376,19 @@ ALTER TABLE `proceso`
   ADD CONSTRAINT `proceso_ibfk_1` FOREIGN KEY (`id_proceso`) REFERENCES `tipo_proceso` (`id_tipo_proceso`);
 
 --
+-- Constraints for table `respuesta`
+--
+ALTER TABLE `respuesta`
+  ADD CONSTRAINT `respuesta_ibfk_1` FOREIGN KEY (`id_usuario_proceso`) REFERENCES `usuario_fuente_proceso` (`id_usuario_proceso`),
+  ADD CONSTRAINT `respuesta_ibfk_2` FOREIGN KEY (`id_fuente_proceso`) REFERENCES `fuente_proceso` (`id_fuente_proceso`),
+  ADD CONSTRAINT `respuesta_ibfk_3` FOREIGN KEY (`id_pregunta_proceso`) REFERENCES `pregunta_proceso` (`id_pregunta_proceso`),
+  ADD CONSTRAINT `respuesta_ibfk_4` FOREIGN KEY (`id_opcion`) REFERENCES `opciones_respuesta` (`id_opcion`);
+
+--
 -- Constraints for table `usuario_fuente_proceso`
 --
 ALTER TABLE `usuario_fuente_proceso`
-  ADD CONSTRAINT `usuario_fuente_proceso_ibfk_1` FOREIGN KEY (`id_fuente_proceso`) REFERENCES `fuente_proceso` (`id_fuente_proceso`),
-  ADD CONSTRAINT `usuario_fuente_proceso_ibfk_2` FOREIGN KEY (`id_opcion`) REFERENCES `opciones_respuesta` (`id_opcion`);
+  ADD CONSTRAINT `usuario_fuente_proceso_ibfk_1` FOREIGN KEY (`id_fuente_proceso`) REFERENCES `fuente_proceso` (`id_fuente_proceso`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

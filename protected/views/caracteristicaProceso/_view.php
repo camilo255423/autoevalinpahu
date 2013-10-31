@@ -17,8 +17,8 @@
 	<?php echo CHtml::encode($data->descripcion); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('numero')); ?>:</b>
-	<?php echo CHtml::encode($data->numero); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('numero_caracteristica')); ?>:</b>
+	<?php echo CHtml::encode($data->numero_caracteristica); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id_factor_proceso')); ?>:</b>

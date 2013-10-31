@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create FactorProceso', 'url'=>array('create')),
-	array('label'=>'Manage FactorProceso', 'url'=>array('admin')),
+	array('label'=>'Crear Factor', 'url'=>array('create')),
+	array('label'=>'Modificar Factores', 'url'=>array('admin')),
 );
 ?>
 

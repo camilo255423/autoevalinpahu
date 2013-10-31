@@ -32,15 +32,16 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'numero'); ?>
-		<?php echo $form->textField($model,'numero'); ?>
-		<?php echo $form->error($model,'numero'); ?>
+		<?php echo $form->labelEx($model,'numero_caracteristica'); ?>
+		<?php echo $form->textField($model,'numero_caracteristica'); ?>
+		<?php echo $form->error($model,'numero_caracteristica'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'id_factor_proceso'); ?>
-		<?php echo $form->textField($model,'id_factor_proceso'); ?>
+		Factor
+		<?php echo $form->dropDownList($model, "id_factor_proceso", CHtml::listData(FactorProceso::model()->findAllByAttributes(array('id_proceso'=>$idProceso)), 'id_factor_proceso','titulo'),array('empty'=>'Seleccionar...')); ?>
 		<?php echo $form->error($model,'id_factor_proceso'); ?>
+           
 	</div>
 
 	<div class="row buttons">

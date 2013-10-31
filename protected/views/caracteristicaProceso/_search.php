@@ -27,8 +27,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'numero'); ?>
-		<?php echo $form->textField($model,'numero'); ?>
+		<?php echo $form->label($model,'numero_caracteristica'); ?>
+		<?php echo $form->textField($model,'numero_caracteristica'); ?>
 	</div>
 
 	<div class="row">

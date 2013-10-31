@@ -7,7 +7,7 @@
  * @property integer $id_caracteristica_proceso
  * @property string $titulo
  * @property string $descripcion
- * @property integer $numero
+ * @property integer $numero_caracteristica
  * @property integer $id_factor_proceso
  *
  * The followings are the available model relations:
@@ -32,12 +32,12 @@ class CaracteristicaProceso extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('titulo, descripcion, numero, id_factor_proceso', 'required'),
-			array('numero, id_factor_proceso', 'numerical', 'integerOnly'=>true),
+			array('titulo, descripcion, numero_caracteristica, id_factor_proceso', 'required'),
+			array('numero_caracteristica, id_factor_proceso', 'numerical', 'integerOnly'=>true),
 			array('titulo', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_caracteristica_proceso, titulo, descripcion, numero, id_factor_proceso', 'safe', 'on'=>'search'),
+			array('id_caracteristica_proceso, titulo, descripcion, numero_caracteristica, id_factor_proceso', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,7 +63,7 @@ class CaracteristicaProceso extends CActiveRecord
 			'id_caracteristica_proceso' => 'Id Caracteristica Proceso',
 			'titulo' => 'Titulo',
 			'descripcion' => 'Descripcion',
-			'numero' => 'Numero',
+			'numero_caracteristica' => 'Numero Caracteristica',
 			'id_factor_proceso' => 'Id Factor Proceso',
 		);
 	}
@@ -89,7 +89,7 @@ class CaracteristicaProceso extends CActiveRecord
 		$criteria->compare('id_caracteristica_proceso',$this->id_caracteristica_proceso);
 		$criteria->compare('titulo',$this->titulo,true);
 		$criteria->compare('descripcion',$this->descripcion,true);
-		$criteria->compare('numero',$this->numero);
+		$criteria->compare('numero_caracteristica',$this->numero_caracteristica);
 		$criteria->compare('id_factor_proceso',$this->id_factor_proceso);
 
 		return new CActiveDataProvider($this, array(

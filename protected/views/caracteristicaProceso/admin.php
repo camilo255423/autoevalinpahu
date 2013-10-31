@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List CaracteristicaProceso', 'url'=>array('index')),
-	array('label'=>'Create CaracteristicaProceso', 'url'=>array('create')),
+	array('label'=>'Listar Características', 'url'=>array('index')),
+	array('label'=>'Crear Característica', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -48,7 +48,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'id_caracteristica_proceso',
 		'titulo',
 		'descripcion',
-		'numero',
+		'numero_caracteristica',
 		'id_factor_proceso',
 		array(
 			'class'=>'CButtonColumn',
