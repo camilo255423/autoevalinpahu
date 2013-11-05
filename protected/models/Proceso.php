@@ -106,4 +106,75 @@ class Proceso extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        protected function afterSave() {
+        parent::afterSave();
+          if($this->isNewRecord)
+            {
+                echo "es nuevo";
+            }
+            else {
+                echo "es viejo";
+            }
+            exit();
+        }
+        public function clonar()
+        {
+            $idProceso=1;
+            $idProcesoNuevo=2;
+           //Factor
+            $factores = FactorProceso::model()->with('caracteristicas.preguntas')->findAllByAttributes(array("id_proceso"=>$idProceso));
+            $preguntas = PreguntaProceso::model()->findAllByAttributes(array("id_proceso"=>$idProceso));
+                foreach($preguntas as $pregunta)
+                {
+                 $pregunta->isNewRecord=true;
+                 $pregunta->id_pregunta_proceso="";
+                 $pregunta->id_proceso=$idProcesoNuevo;
+                 $pregunta->save(); 
+                }  
+            foreach($factores as $factor)
+            {
+               
+                $factor->id_factor_proceso="";
+                $factor->id_proceso=$idProcesoNuevo;
+                $factor->isNewRecord=true;
+                $factor->save();
+                 
+                foreach($factor->caracteristicas as $caracteristica)
+                {
+                        $caracteristica->isNewRecord=true;
+                        $caracteristica->id_caracteristica_proceso="";
+                        $caracteristica->id_factor_proceso= $factor->id_factor_proceso;
+                        $caracteristica->save();
+                        print_r($caracteristica->errors);
+                        exit();
+                        foreach($caracteristica->preguntas as $pregunta)
+                        {
+                         
+                            $caracterisitcaPregunta = new CaracteristicaPreguntaProceso();
+                            $caracterisitcaPregunta->id_caracteristica_proceso=$caracteristica->id_caracteristica_proceso;
+                            $caracterisitcaPregunta->id_pregunta_proceso=$pregunta->id_pregunta_proceso;
+                            
+                        }    
+                                
+                }    
+            }    
+            $fuentes = FuenteProceso::model()->with('preguntas')->findAllByAttributes(array("id_proceso"=>$idProceso));
+            foreach($fuentes as $fuente)
+            {
+                $fuente->isNewRecord=true;
+                $fuente->id_fuente_proceso="";
+                $fuente->id_proceso=$idProcesoNuevo;
+                $fuente->save();
+                foreach($fuente->preguntas as $pregunta)
+                {
+                    $fuentePregunta = new PreguntaFuenteProceso();
+                    $fuentePregunta->id_fuente_proceso=$fuente->id_fuente_proceso;
+                    $fuentePregunta->id_pregunta_proceso=$pregunta->id_pregunta_proceso;
+                    $fuentePregunta->save();
+                }   
+                
+            }    
+        }        
+          
+               
 }

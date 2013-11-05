@@ -51,6 +51,7 @@ class PreguntaProceso extends CActiveRecord
 			'caracteristicas' => array(self::HAS_MANY, 'CaracteristicaPreguntaProceso', 'id_pregunta_proceso'),
 			'preguntaFuenteProceso' => array(self::HAS_ONE, 'PreguntaFuenteProceso', 'id_pregunta_proceso'),
 			'idTipoRespuesta' => array(self::BELONGS_TO, 'TipoRespuesta', 'id_tipo_respuesta'),
+                        
 		);
 	}
 
@@ -103,4 +104,25 @@ class PreguntaProceso extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        public function estadisticaPorRespuesta($idFuente)
+        {
+            $idPregunta = $this->id_pregunta_proceso;
+            $connection=Yii::app()->db;   
+            $sql = "SELECT respuesta, nombre as fuente,valor,COUNT( * ) as conteo 
+FROM respuesta, fuente_proceso,opciones_respuesta
+WHERE respuesta.id_fuente_proceso=fuente_proceso.id_fuente_proceso
+AND respuesta.id_opcion = opciones_respuesta.id_opcion
+AND respuesta.id_pregunta_proceso =:id_pregunta
+AND fuente_proceso.id_fuente_proceso=:id_fuente
+GROUP BY respuesta,valor,nombre
+ORDER BY valor desc
+";
+            $command=$connection->createCommand($sql);
+            $command->bindParam(":id_pregunta",$idPregunta,PDO::PARAM_STR);
+            $command->bindParam(":id_fuente",$idFuente,PDO::PARAM_STR);
+            $dataReader = $command->query();
+         
+            return $dataReader->readAll();
+        } 
+        // public function totalPorRespuesta() 
 }

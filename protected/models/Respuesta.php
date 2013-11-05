@@ -1,27 +1,28 @@
 <?php
 
 /**
- * This is the model class for table "factor_proceso".
+ * This is the model class for table "respuesta".
  *
- * The followings are the available columns in table 'factor_proceso':
- * @property integer $id_factor_proceso
- * @property integer $id_proceso
- * @property string $titulo
- * @property string $descripcion
- * @property integer $numero_factor
+ * The followings are the available columns in table 'respuesta':
+ * @property integer $id_usuario_proceso
+ * @property integer $id_fuente_proceso
+ * @property integer $id_pregunta_proceso
+ * @property integer $id_opcion
  *
  * The followings are the available model relations:
- * @property CaracteristicaProceso[] $caracteristicaProcesos
- * @property Proceso $idProceso
+ * @property UsuarioFuenteProceso $idUsuarioProceso
+ * @property FuenteProceso $idFuenteProceso
+ * @property PreguntaProceso $idPreguntaProceso
+ * @property OpcionesRespuesta $idOpcion
  */
-class FactorProceso extends CActiveRecord
+class Respuesta extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'factor_proceso';
+		return 'respuesta';
 	}
 
 	/**
@@ -32,12 +33,11 @@ class FactorProceso extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_proceso, titulo, numero_factor', 'required'),
-			array('id_proceso, numero_factor', 'numerical', 'integerOnly'=>true),
-			array('titulo', 'length', 'max'=>200),
+			array('id_usuario_proceso, id_fuente_proceso, id_pregunta_proceso, id_opcion', 'required'),
+			array('id_usuario_proceso, id_fuente_proceso, id_pregunta_proceso, id_opcion', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_factor_proceso, id_proceso, titulo, descripcion, numero_factor', 'safe', 'on'=>'search'),
+			array('id_usuario_proceso, id_fuente_proceso, id_pregunta_proceso, id_opcion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,8 +49,10 @@ class FactorProceso extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'caracteristicas' => array(self::HAS_MANY, 'CaracteristicaProceso', 'id_factor_proceso'),
-			'idProceso' => array(self::BELONGS_TO, 'Proceso', 'id_proceso'),
+			'idUsuarioProceso' => array(self::BELONGS_TO, 'UsuarioFuenteProceso', 'id_usuario_proceso'),
+			'idFuenteProceso' => array(self::BELONGS_TO, 'FuenteProceso', 'id_fuente_proceso'),
+			'idPreguntaProceso' => array(self::BELONGS_TO, 'PreguntaProceso', 'id_pregunta_proceso'),
+			'idOpcion' => array(self::BELONGS_TO, 'OpcionesRespuesta', 'id_opcion'),
 		);
 	}
 
@@ -60,11 +62,10 @@ class FactorProceso extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_factor_proceso' => 'Id Factor Proceso',
-			'id_proceso' => 'Id Proceso',
-			'titulo' => 'Titulo',
-			'descripcion' => 'Descripcion',
-			'numero_factor' => 'Numero Factor',
+			'id_usuario_proceso' => 'Id Usuario Proceso',
+			'id_fuente_proceso' => 'Id Fuente Proceso',
+			'id_pregunta_proceso' => 'Id Pregunta Proceso',
+			'id_opcion' => 'Id Opcion',
 		);
 	}
 
@@ -86,11 +87,10 @@ class FactorProceso extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_factor_proceso',$this->id_factor_proceso);
-		$criteria->compare('id_proceso',$this->id_proceso);
-		$criteria->compare('titulo',$this->titulo,true);
-		$criteria->compare('descripcion',$this->descripcion,true);
-		$criteria->compare('numero_factor',$this->numero_factor);
+		$criteria->compare('id_usuario_proceso',$this->id_usuario_proceso);
+		$criteria->compare('id_fuente_proceso',$this->id_fuente_proceso);
+		$criteria->compare('id_pregunta_proceso',$this->id_pregunta_proceso);
+		$criteria->compare('id_opcion',$this->id_opcion);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -101,7 +101,7 @@ class FactorProceso extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return FactorProceso the static model class
+	 * @return Respuesta the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

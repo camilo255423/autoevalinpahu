@@ -1,7 +1,10 @@
+
 <?php
 /* @var $this FactorProcesoController */
 /* @var $dataProvider CActiveDataProvider */
-
+$baseUrl = Yii::app()->baseUrl; 
+$cs = Yii::app()->getClientScript();
+$cs->registerCssFile($baseUrl.'/css/custom.css');
 $this->breadcrumbs=array(
 	'Factor Procesos',
 );
@@ -13,18 +16,17 @@ $this->menu=array(
 );
 ?>
 
-<h2>Característica  <?php echo $caracteristica->numero_caracteristica.". ".$caracteristica->titulo ?></h2>
-<table>
-<tr class="row">    
-<th>Pregunta</th>
+<h2> <?php echo $caracteristica->titulo ?>.</h2>
+<table class="clase2">
+<th class="clase2">Pregunta</th>
 
     <?php foreach ($fuentes as $fuente) { ?>
-    <th><?php echo $fuente->nombre; ?></th>
+    <th class="clase1"><?php echo $fuente->nombre; ?></th>
     <?php } ?>
 </tr>
 <?php foreach ($caracteristica->preguntas as $i=>$pregunta) {?>
 
-<tr>    
+<tr class="clase2">    
 
 <td>
     <?php echo ($i+1); ?> .
@@ -37,7 +39,7 @@ $this->menu=array(
     <?php if($j<$nfuentes) {?>
     <?php if($fuente->id_fuente_proceso==$pregunta->fuentes[$j]->id_fuente_proceso ){ ?>
     
-    <?php $texto="X"; ?>
+    <?php $texto="x"; ?>
     <?php $j++; ?>
     <?php } ?>
     <?php } ?>

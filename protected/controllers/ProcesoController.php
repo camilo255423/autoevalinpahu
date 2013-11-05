@@ -29,7 +29,7 @@ class ProcesoController extends Controller
 		return array(
 			
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'index','view'),
+				'actions'=>array('create','update', 'index','view','prueba'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -139,7 +139,12 @@ class ProcesoController extends Controller
 			'model'=>$model,
 		));
 	}
-
+        public function actionPrueba()
+        {
+            $a = Proceso::model()->findByPk(1);
+            
+            $a->clonar();
+        }        
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
@@ -167,4 +172,5 @@ class ProcesoController extends Controller
 			Yii::app()->end();
 		}
 	}
+        
 }
