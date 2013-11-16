@@ -14,7 +14,14 @@ $this->menu=array(
 
 <h1>Procesos</h1>
 <div>Seleccione un proceso de autoevaluación:</div>
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+<?php
+        foreach ($models as $model)
+        {
+ ?>
+        <?php  if( $model->tipoProceso!=null) echo $model->tipoProceso->nombre; ?>
+        <?php if( $model->tipoProceso!=null) $s=$model->descripcion."-".$model->tipoProceso->nombre.": de ".$model->fecha_inicio." al ".$model->fecha_fin; else $s="null".$model->id_proceso; ?>
+        <?php echo CHtml::link($s,array('factorProceso/index&idProceso='.$model->id_proceso)); ?>
+<?php            
+        }
+
+?>

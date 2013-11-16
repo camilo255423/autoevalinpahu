@@ -49,7 +49,7 @@ class Proceso extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'factorProceso' => array(self::HAS_ONE, 'FactorProceso', 'id_factor_proceso'),
-			'idProceso' => array(self::BELONGS_TO, 'TipoProceso', 'id_proceso'),
+			'tipoProceso' => array(self::BELONGS_TO, 'TipoProceso', 'id_tipo_proceso'),
 		);
 	}
 
@@ -110,31 +110,28 @@ class Proceso extends CActiveRecord
         parent::afterSave();
           if($this->isNewRecord)
             {
-                echo "es nuevo";
+                $this->clonar();
             }
-            else {
-                echo "es viejo";
-            }
-            exit();
+           
         }
         public function clonar()
         {
             $idProceso=1;
-            $idProcesoNuevo=2;
+            $idProcesoNuevo=$this->id_proceso;
            //Factor
             $factores = FactorProceso::model()->with('caracteristicas.preguntas')->findAllByAttributes(array("id_proceso"=>$idProceso));
             $preguntas = PreguntaProceso::model()->findAllByAttributes(array("id_proceso"=>$idProceso));
                 foreach($preguntas as $pregunta)
                 {
                  $pregunta->isNewRecord=true;
-                 $pregunta->id_pregunta_proceso="";
+                 $pregunta->id_pregunta_proceso=null;
                  $pregunta->id_proceso=$idProcesoNuevo;
                  $pregunta->save(); 
                 }  
             foreach($factores as $factor)
             {
                
-                $factor->id_factor_proceso="";
+                $factor->id_factor_proceso=null;
                 $factor->id_proceso=$idProcesoNuevo;
                 $factor->isNewRecord=true;
                 $factor->save();
@@ -142,11 +139,10 @@ class Proceso extends CActiveRecord
                 foreach($factor->caracteristicas as $caracteristica)
                 {
                         $caracteristica->isNewRecord=true;
-                        $caracteristica->id_caracteristica_proceso="";
+                        $caracteristica->id_caracteristica_proceso=null;
                         $caracteristica->id_factor_proceso= $factor->id_factor_proceso;
                         $caracteristica->save();
-                        print_r($caracteristica->errors);
-                        exit();
+                       
                         foreach($caracteristica->preguntas as $pregunta)
                         {
                          
@@ -162,7 +158,7 @@ class Proceso extends CActiveRecord
             foreach($fuentes as $fuente)
             {
                 $fuente->isNewRecord=true;
-                $fuente->id_fuente_proceso="";
+                $fuente->id_fuente_proceso=null;
                 $fuente->id_proceso=$idProcesoNuevo;
                 $fuente->save();
                 foreach($fuente->preguntas as $pregunta)

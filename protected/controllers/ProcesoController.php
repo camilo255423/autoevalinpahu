@@ -119,10 +119,8 @@ class ProcesoController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Proceso');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+		$models = Proceso::model()->with('tipoProceso')->findAll();
+                $this->render('index', array('models'=>$models));
 	}
 
 	/**
