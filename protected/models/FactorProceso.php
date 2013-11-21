@@ -62,7 +62,7 @@ class FactorProceso extends CActiveRecord
 		return array(
 			'id_factor_proceso' => 'Id Factor Proceso',
 			'id_proceso' => 'Id Proceso',
-			'titulo' => 'Titulo',
+			'titulo' => 'Factor',
 			'descripcion' => 'Descripcion',
 			'numero_factor' => 'Numero Factor',
 		);
@@ -85,13 +85,14 @@ class FactorProceso extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-
-		$criteria->compare('id_factor_proceso',$this->id_factor_proceso);
-		$criteria->compare('id_proceso',$this->id_proceso);
-		$criteria->compare('titulo',$this->titulo,true);
-		$criteria->compare('descripcion',$this->descripcion,true);
-		$criteria->compare('numero_factor',$this->numero_factor);
-
+         
+                $idProceso = Yii::app()->session['idProceso'];
+                $criteria->condition = 'id_proceso=:idProceso';
+                $criteria->params = array(':idProceso'=>$idProceso);
+     
+		$criteria->compare('Factor',$this->titulo,true);
+		$criteria->compare('Descripción',$this->descripcion,true);
+		
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

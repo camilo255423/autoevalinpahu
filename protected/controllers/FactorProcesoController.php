@@ -131,8 +131,12 @@ class FactorProcesoController extends Controller
         {
             $idProceso = Yii::app()->session['idProceso'] ;
         }    
-	$model = FactorProceso::model()->findAllByAttributes(array('id_proceso'=>$idProceso),array('order'=>'numero_factor'));
-        $this->render('index',array(
+	$model=new FactorProceso('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['FactorProceso']))
+			$model->attributes=$_GET['FactorProceso'];
+
+		$this->render('admin',array(
 			'model'=>$model,
 		));
 	}

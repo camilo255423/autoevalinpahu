@@ -31,7 +31,7 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
                             array('label'=>'Procesos', 'url'=>array('/proceso')),
-                            array('label'=>'Factores', 'url'=>array('/factorProceso')),
+                            array('label'=>'Factores', 'url'=>array('/factorProceso/admin')),
                             array('label'=>'Fuentes/Instrumentos', 'url'=>array('/fuenteProceso')),
                             array('label'=>'Reportes', 'url'=>array('/reportes')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),

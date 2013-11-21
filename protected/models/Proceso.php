@@ -63,7 +63,7 @@ class Proceso extends CActiveRecord
 			'fecha_inicio' => 'Fecha Inicio',
 			'fecha_fin' => 'Fecha Fin',
 			'id_tipo_proceso' => 'Id Tipo Proceso',
-			'descripcion' => 'Descripcion',
+			'descripcion' => 'Proceso',
 		);
 	}
 

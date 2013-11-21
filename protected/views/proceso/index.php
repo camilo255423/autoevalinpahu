@@ -18,9 +18,10 @@ $this->menu=array(
         foreach ($models as $model)
         {
  ?>
-        <?php  if( $model->tipoProceso!=null) echo $model->tipoProceso->nombre; ?>
-        <?php if( $model->tipoProceso!=null) $s=$model->descripcion."-".$model->tipoProceso->nombre.": de ".$model->fecha_inicio." al ".$model->fecha_fin; else $s="null".$model->id_proceso; ?>
+        <?php $s=$model->descripcion."-".$model->tipoProceso->nombre.": de ".$model->fecha_inicio." al ".$model->fecha_fin; ?>
+        <div>
         <?php echo CHtml::link($s,array('factorProceso/index&idProceso='.$model->id_proceso)); ?>
+        </div>
 <?php            
         }
 

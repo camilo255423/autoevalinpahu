@@ -241,6 +241,7 @@ class CaracteristicaProcesoController extends Controller
 	
         public function actionAdmin()
 	{
+                
 		$model=new CaracteristicaProceso('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['CaracteristicaProceso']))

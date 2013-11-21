@@ -84,8 +84,7 @@ class CaracteristicaProceso extends CActiveRecord
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
-		$criteria=new CDbCriteria;
-
+		  
 		$criteria->compare('id_caracteristica_proceso',$this->id_caracteristica_proceso);
 		$criteria->compare('titulo',$this->titulo,true);
 		$criteria->compare('descripcion',$this->descripcion,true);

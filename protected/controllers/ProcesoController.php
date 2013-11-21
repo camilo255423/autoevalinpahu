@@ -119,16 +119,11 @@ class ProcesoController extends Controller
 	 */
 	public function actionIndex()
 	{
+            /*
 		$models = Proceso::model()->with('tipoProceso')->findAll();
                 $this->render('index', array('models'=>$models));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new Proceso('search');
+                */
+                $model=new Proceso('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Proceso']))
 			$model->attributes=$_GET['Proceso'];
@@ -136,6 +131,14 @@ class ProcesoController extends Controller
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+	}
+
+	/**
+	 * Manages all models.
+	 */
+	public function actionAdmin()
+	{
+		
 	}
         public function actionPrueba()
         {

@@ -11,8 +11,6 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Listar Factores', 'url'=>array('index')),
 	array('label'=>'Crear Factor', 'url'=>array('create')),
-	array('label'=>'Ver Factor', 'url'=>array('view', 'id'=>$model->id_factor_proceso)),
-	array('label'=>'Modificar Factores', 'url'=>array('admin')),
 );
 ?>
 

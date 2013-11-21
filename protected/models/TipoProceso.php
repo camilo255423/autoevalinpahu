@@ -55,7 +55,7 @@ class TipoProceso extends CActiveRecord
 	{
 		return array(
 			'id_tipo_proceso' => 'Id Tipo Proceso',
-			'nombre' => 'Nombre',
+			'nombre' => 'Tipo de Proceso',
 		);
 	}
 
@@ -78,7 +78,7 @@ class TipoProceso extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_tipo_proceso',$this->id_tipo_proceso);
-		$criteria->compare('nombre',$this->nombre,true);
+		$criteria->compare('Tipo Proceso',$this->nombre,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
