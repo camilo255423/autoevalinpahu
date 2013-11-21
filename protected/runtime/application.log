@@ -2286,3 +2286,102 @@ Stack trace:
 REQUEST_URI=/autoevalinpahu/index.php?r=fuenteProceso/instrumentoFuente&idFuente=1
 HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=fuenteProceso
 ---
+2013/11/21 14:19:05 [error] [php] Undefined variable: criteria (C:\xampp\htdocs\autoevalinpahu\protected\models\CaracteristicaProceso.php:88)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CaracteristicaProcesoController->renderInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(869): CaracteristicaProcesoController->renderFile()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(782): CaracteristicaProcesoController->renderPartial()
+#3 C:\xampp\htdocs\autoevalinpahu\protected\controllers\CaracteristicaProcesoController.php(252): CaracteristicaProcesoController->render()
+#4 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): CaracteristicaProcesoController->actionAdmin()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CaracteristicaProcesoController->runAction()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CaracteristicaProcesoController->filterAccessControl()
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(265): CaracteristicaProcesoController->runActionWithFilters()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CaracteristicaProcesoController->run()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#15 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\autoevalinpahu\index.php(13): CWebApplication->run()
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/admin
+in C:\xampp\htdocs\autoevalinpahu\protected\models\CaracteristicaProceso.php (88)
+in C:\xampp\htdocs\autoevalinpahu\protected\views\caracteristicaProceso\admin.php (45)
+in C:\xampp\htdocs\autoevalinpahu\protected\controllers\CaracteristicaProcesoController.php (252)
+2013/11/21 14:35:00 [error] [php] Undefined variable: idFactor (C:\xampp\htdocs\autoevalinpahu\protected\views\caracteristicaProceso\admin.php:45)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(869): CaracteristicaProcesoController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(782): CaracteristicaProcesoController->renderPartial()
+#2 C:\xampp\htdocs\autoevalinpahu\protected\controllers\CaracteristicaProcesoController.php(263): CaracteristicaProcesoController->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): CaracteristicaProcesoController->actionAdmin()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CaracteristicaProcesoController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CaracteristicaProcesoController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CaracteristicaProcesoController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CaracteristicaProcesoController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\autoevalinpahu\index.php(13): CWebApplication->run()
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/admin
+in C:\xampp\htdocs\autoevalinpahu\protected\views\caracteristicaProceso\admin.php (45)
+in C:\xampp\htdocs\autoevalinpahu\protected\controllers\CaracteristicaProcesoController.php (263)
+in C:\xampp\htdocs\autoevalinpahu\index.php (13)
+2013/11/21 14:36:12 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\autoevalinpahu\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/index
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=caracteristicaProceso/view&id=5
+---
+2013/11/21 14:38:05 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\autoevalinpahu\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/index
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=caracteristicaProceso/view&id=5
+---
+2013/11/21 14:38:06 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('caracteristicaP...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\autoevalinpahu\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/autoevalinpahu/index.php?r=caracteristicaProceso/index
+HTTP_REFERER=http://127.0.0.1/autoevalinpahu/index.php?r=caracteristicaProceso/view&id=5
+---

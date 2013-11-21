@@ -50,7 +50,7 @@ class CaracteristicaProceso extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'preguntas' => array(self::MANY_MANY, 'PreguntaProceso', 'caracteristica_pregunta_proceso(id_pregunta_proceso,id_caracteristica_proceso)'),
-			'idFactorProceso' => array(self::BELONGS_TO, 'FactorProceso', 'id_factor_proceso'),
+			'factor' => array(self::BELONGS_TO, 'FactorProceso', 'id_factor_proceso'),
 		);
 	}
 
@@ -80,11 +80,16 @@ class CaracteristicaProceso extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search()
+	public function search($idFactor)
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
-		  
+		  $criteria=new CDbCriteria;
+                if($idFactor!=null)
+                {    
+                $criteria->condition = 'id_factor_proceso=:idFactor';
+                }
+                $criteria->params = array(':idFactor'=>$idFactor);
 		$criteria->compare('id_caracteristica_proceso',$this->id_caracteristica_proceso);
 		$criteria->compare('titulo',$this->titulo,true);
 		$criteria->compare('descripcion',$this->descripcion,true);

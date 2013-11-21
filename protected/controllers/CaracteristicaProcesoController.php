@@ -121,13 +121,25 @@ class CaracteristicaProcesoController extends Controller
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex($idFactor)
+	public function actionIndex($idFactor=null)
 	{
-	$factor = FactorProceso::model()->findByPk($idFactor);	  
+	/*$factor = FactorProceso::model()->findByPk($idFactor);	  
 	$model = CaracteristicaProceso::model()->findAllByAttributes(array('id_factor_proceso'=>$idFactor),array('order'=>'numero_caracteristica'));
         $this->render('index',array(
 			'model'=>$model,
                         'factor'=>$factor,
+		));
+         * */
+            
+         $model=new CaracteristicaProceso('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['CaracteristicaProceso']))
+			$model->attributes=$_GET['CaracteristicaProceso'];   
+        
+		
+
+		$this->render('admin',array(
+			'model'=>$model, 'idFactor'=>$idFactor
 		));
 	}
         
