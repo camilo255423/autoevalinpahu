@@ -33,8 +33,12 @@ array(
 'ajax' => array(
 'type'=>'POST', //request type
 'url'=>CController::createUrl('reportes/actualizarLista'), //url to call.
-'update'=>'#id_caracteristica', //selector to update
-
+'success'=>"function(data)
+    {
+    $('#id_caracteristica').html(data);
+    $('#id_caracteristica').trigger( 'change' );
+    }    
+"
 )));
 
  ?>

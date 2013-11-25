@@ -9,11 +9,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar Factores', 'url'=>array('index')),
-	array('label'=>'Crear Factor', 'url'=>array('create')),
+	  array('label'=>'Guardar', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#factor-proceso-form').submit()")),
+          array('label'=>'Cancelar', 'url'=>array('index'))
+    
 );
 ?>
 
-<h1>Actualizar Factor <?php echo $model->id_factor_proceso; ?></h1>
+<h1>Actualizar Factor</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

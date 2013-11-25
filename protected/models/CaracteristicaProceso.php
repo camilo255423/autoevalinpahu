@@ -61,10 +61,10 @@ class CaracteristicaProceso extends CActiveRecord
 	{
 		return array(
 			'id_caracteristica_proceso' => 'Id Caracteristica Proceso',
-			'titulo' => 'Titulo',
-			'descripcion' => 'Descripcion',
-			'numero_caracteristica' => 'Numero Caracteristica',
-			'id_factor_proceso' => 'Id Factor Proceso',
+			'titulo' => 'Título',
+			'descripcion' => 'Descripción',
+			'numero_caracteristica' => 'Número Caracteristica',
+			'id_factor_proceso' => 'Factor',
 		);
 	}
 

@@ -7,15 +7,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create FactorProceso', 'url'=>array('create')),
-	array('label'=>'Manage FactorProceso', 'url'=>array('admin')),
         array('label'=>'Guardar', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#caracteristica-agregar-preguntas').submit()")),
 );
 ?>
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'caracteristica-editar-preguntas',
+	'id'=>'caracteristica-agregar-preguntas',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -23,7 +21,7 @@ $this->menu=array(
 	'enableAjaxValidation'=>false,
 )); ?>
 <?php echo CHtml::hiddenField("idCaracteristica",$caracteristica->id_caracteristica_proceso); ?>    
-<h2>Característica  <?php echo $caracteristica->numero_caracteristica.". ".$caracteristica->titulo ?></h2>
+<h2> <?php echo $caracteristica->titulo ?></h2>
 <table>
 <tr class="row">    
 <th>Pregunta</th>

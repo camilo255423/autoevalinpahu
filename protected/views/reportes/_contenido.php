@@ -1,3 +1,4 @@
+
 <?php
 $i=0;
 $caracteristica = CaracteristicaProceso::model()->with('preguntas.fuentes')->findByPk($idCaracteristica);

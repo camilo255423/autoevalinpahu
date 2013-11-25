@@ -9,13 +9,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List CaracteristicaProceso', 'url'=>array('index')),
-	array('label'=>'Create CaracteristicaProceso', 'url'=>array('create')),
-	array('label'=>'View CaracteristicaProceso', 'url'=>array('view', 'id'=>$model->id_caracteristica_proceso)),
-	array('label'=>'Manage CaracteristicaProceso', 'url'=>array('admin')),
+array('label'=>'Guardar', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#caracteristica-nueva-pregunta').submit()")),
+    array('label'=>'Cancelar', 'url'=>array('index'))
 );
 ?>
 
-<h1>Update CaracteristicaProceso <?php echo $model->id_caracteristica_proceso; ?></h1>
+<h1>Actualizar Característica</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model,'idProceso'=>$idProceso)); ?>

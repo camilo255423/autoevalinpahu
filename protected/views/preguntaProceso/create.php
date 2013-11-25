@@ -4,12 +4,11 @@
 
 $this->breadcrumbs=array(
 	'Pregunta Procesos'=>array('index'),
-	'Create',
+	'Crear',
 );
 
 $this->menu=array(
-	array('label'=>'List PreguntaProceso', 'url'=>array('index')),
-	array('label'=>'Manage PreguntaProceso', 'url'=>array('admin')),
+array('label'=>'Guardar', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#pregunta-proceso-form').submit()")),
 );
 ?>
 

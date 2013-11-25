@@ -17,7 +17,7 @@ $this->menu=array(
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'factor-proceso-grid',
 	'dataProvider'=>$model->search(),
-        'template' => '{items}',
+      //  'template' => '{items}',
      //   'cssFile' => Yii::app()->request->baseUrl.'/css/grid.css',
 	'columns'=>array(
 		array(

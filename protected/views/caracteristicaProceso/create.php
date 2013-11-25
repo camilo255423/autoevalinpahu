@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar Características', 'url'=>array('index')),
-	array('label'=>'Manage CaracteristicaProceso', 'url'=>array('admin')),
+array('label'=>'Guardar', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#caracteristica-nueva-pregunta').submit()")),
+    array('label'=>'Cancelar', 'url'=>array('index'))
 );
 ?>
 
-<h1>Create CaracteristicaProceso</h1>
+<h1>Crear Característica</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model,'idProceso'=>$idProceso)); ?>

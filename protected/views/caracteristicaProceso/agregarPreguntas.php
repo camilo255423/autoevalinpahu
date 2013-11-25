@@ -1,10 +1,14 @@
-<?php
-/* @var $this FactorProcesoController */
-/* @var $dataProvider CActiveDataProvider */
 
+<?php
+
+$baseUrl = Yii::app()->baseUrl; 
+$cs = Yii::app()->getClientScript();
+$cs->registerCssFile($baseUrl.'/css/custom.css');
 $this->breadcrumbs=array(
 	'Factor Procesos',
 );
+
+
 
 $this->menu=array(
 	array('label'=>'Crear Pregunta', 'url'=>array('preguntaProceso/create&idCaracteristica='.$caracteristica->id_caracteristica_proceso)),
@@ -22,18 +26,21 @@ $this->menu=array(
 	'enableAjaxValidation'=>false,
 )); ?>
 <?php echo CHtml::hiddenField("idCaracteristica",$caracteristica->id_caracteristica_proceso); ?>    
-<h2>Característica  <?php echo $caracteristica->numero_caracteristica.". ".$caracteristica->titulo ?></h2>
-<table>
-<tr class="row">    
-<th>Pregunta</th>
+<h2><?php echo $caracteristica->titulo ?></h2>
+<table class="clase2">
+<tr class="clase2">    
+    <th class="clase2" colspan="2">Pregunta</th>
 
     </tr>
 <?php foreach ($preguntas as $i=>$pregunta) {?>
-<tr>    
+<tr class="clase2">    
 <td>
                 <?php echo CHtml::hiddenField("pregunta[$pregunta->id_pregunta_proceso]",0); ?>
                 <?php echo CHtml::checkBox("pregunta[$pregunta->id_pregunta_proceso]",null!=CaracteristicaPreguntaProceso::model()->findByAttributes(array('id_caracteristica_proceso'=>$caracteristica->id_caracteristica_proceso, 'id_pregunta_proceso'=>$pregunta->id_pregunta_proceso))) ?>
 		<?php echo $pregunta->enunciado; ?>		
+</td>
+<td>
+   <?php echo CHtml::link('Borrar',"#", array("submit"=>array('borrarPregunta', 'idPregunta'=>$pregunta->id_pregunta_proceso,"idCaracteristica"=>$caracteristica->id_caracteristica_proceso), 'confirm' => 'Está seguro que desea borrar esta pregunta? (se borrará de todas las características asociadas también)')); ?> 
 </td>
 <?php } ?>
 </table>

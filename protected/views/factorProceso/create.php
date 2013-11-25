@@ -8,7 +8,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar Factores', 'url'=>array('admin')),
+	  array('label'=>'Guardar', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#factor-proceso-form').submit()")),
+          array('label'=>'Cancelar', 'url'=>array('index'))
+    
 );
 ?>
 

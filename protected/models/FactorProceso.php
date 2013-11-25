@@ -108,4 +108,5 @@ class FactorProceso extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+             
 }

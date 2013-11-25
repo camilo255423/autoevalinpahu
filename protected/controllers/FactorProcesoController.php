@@ -63,7 +63,8 @@ class FactorProcesoController extends Controller
 	public function actionCreate()
 	{
 		$model=new FactorProceso;
-                $model->id_proceso = Yii::app()->session['idProceso'];
+              
+                $model->id_proceso = $this->getProceso();
               
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -96,7 +97,7 @@ class FactorProcesoController extends Controller
 		{
 			$model->attributes=$_POST['FactorProceso'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_factor_proceso));
+				$this->redirect(array('index'));
 		}
 
 		$this->render('update',array(
@@ -129,7 +130,7 @@ class FactorProcesoController extends Controller
         }
         else
         {
-            $idProceso = Yii::app()->session['idProceso'] ;
+           $idProceso =  $this->getProceso();
         }    
 	$model=new FactorProceso('search');
 		$model->unsetAttributes();  // clear any default values
@@ -183,4 +184,5 @@ class FactorProcesoController extends Controller
 			Yii::app()->end();
 		}
 	}
+        
 }
