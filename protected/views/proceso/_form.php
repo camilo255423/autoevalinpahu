@@ -20,12 +20,14 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<label for="Proceso_fecha_inicio" class="required">Fecha de Inicio <span class="required">*</span></label>		<input name="Proceso[fecha_inicio]" id="Proceso_fecha_inicio" type="date" />			
+        <label for="Proceso_fecha_inicio" class="required">Fecha de Inicio <span class="required">*</span></label>		
+        <input name="Proceso[fecha_inicio]" id="Proceso_fecha_inicio" type="date" value="<?php if(!$model->isNewRecord) echo $model->fecha_inicio; ?>"/>			
         <?php echo $form->error($model,'fecha_inicio'); ?>
         </div>
 
 	<div class="row">
-		<label for="Proceso_fecha_fin" class="required">Fecha de Finalización <span class="required">*</span></label>		<input name="Proceso[fecha_fin]" id="Proceso_fecha_fin" type="date" />			
+		<label for="Proceso_fecha_fin" class="required">Fecha de Finalización <span class="required">*</span></label>		
+                <input name="Proceso[fecha_fin]" id="Proceso_fecha_fin" type="date" value="<?php if(!$model->isNewRecord) echo $model->fecha_fin; ?>"/>			
         <?php echo $form->error($model,'fecha_fin'); ?>
         </div>
 
@@ -39,10 +41,6 @@
 		<?php echo $form->labelEx($model,'descripcion'); ?>
 		<?php echo $form->textArea($model,'descripcion',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'descripcion'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

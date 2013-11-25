@@ -68,7 +68,7 @@ class ProcesoController extends Controller
 		{
 			$model->attributes=$_POST['Proceso'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_proceso));
+				$this->redirect(array('index'));
 		}
 
 		$this->render('create',array(
@@ -92,7 +92,7 @@ class ProcesoController extends Controller
 		{
 			$model->attributes=$_POST['Proceso'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_proceso));
+				$this->redirect(array('index'));
 		}
 
 		$this->render('update',array(

@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Proceso', 'url'=>array('index')),
-	array('label'=>'Manage Proceso', 'url'=>array('admin')),
+array('label'=>'Guardar', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#proceso-form').submit()")),
+    array('label'=>'Cancelar', 'url'=>array('index'))
 );
 ?>
 
