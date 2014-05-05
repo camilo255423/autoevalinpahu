@@ -5,6 +5,8 @@
 $baseUrl = Yii::app()->baseUrl; 
 $cs = Yii::app()->getClientScript();
 $cs->registerCssFile($baseUrl.'/css/custom.css');
+$cs->registerCssFile($baseUrl.'/css/gridViewStyle/gridView.css');
+
 $this->breadcrumbs=array(
 	'Factor Procesos',
 );
@@ -17,16 +19,17 @@ $this->menu=array(
 ?>
 
 <h2> <?php echo $caracteristica->titulo ?>.</h2>
-<table class="clase2">
-<th class="clase2">Pregunta</th>
+<div class="grid-view rounded">
+<table class="items">
+<th>Pregunta</th>
 
     <?php foreach ($fuentes as $fuente) { ?>
-    <th class="clase1"><?php echo $fuente->nombre; ?></th>
+    <th><?php echo $fuente->nombre; ?></th>
     <?php } ?>
 </tr>
 <?php foreach ($caracteristica->preguntas as $i=>$pregunta) {?>
 
-<tr class="clase2">    
+<tr class="<?php if($i%2==0) echo 'odd'; else echo 'even'; ?> ">    
 
 <td>
     <?php echo ($i+1); ?> .
@@ -39,7 +42,7 @@ $this->menu=array(
     <?php if($j<$nfuentes) {?>
     <?php if($fuente->id_fuente_proceso==$pregunta->fuentes[$j]->id_fuente_proceso ){ ?>
     
-    <?php $texto="x"; ?>
+    <?php $texto = CHtml::image(Yii::app()->request->baseUrl.'/images/check.png'); ?>
     <?php $j++; ?>
     <?php } ?>
     <?php } ?>
@@ -48,3 +51,4 @@ $this->menu=array(
 </tr>
 <?php } ?>
 </table>
+</div>

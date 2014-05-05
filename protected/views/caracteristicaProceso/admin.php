@@ -61,5 +61,10 @@ $('.search-form form').submit(function(){
                         ),
                     ),
                 ),  
-           ) 
+           ), 
+      'pager' => array('cssFile' => Yii::app()->baseUrl . '/css/gridViewStyle/gridView.css'),
+        'cssFile' => Yii::app()->baseUrl . '/css/gridViewStyle/gridView.css',
+        //changing the text above the grid can be fun
+        'summaryText' => 'Yiiplayground is showing you {start} - {end} of {count} cool records',
+        'htmlOptions' => array('class' => 'grid-view rounded'),
 )); ?>

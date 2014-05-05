@@ -2,7 +2,11 @@
 /* @var $this PreguntaProcesoController */
 /* @var $model PreguntaProceso */
 /* @var $form CActiveForm */
+$baseUrl = Yii::app()->baseUrl; 
+$cs = Yii::app()->getClientScript();
+$cs->registerCssFile($baseUrl.'/css/custom.css');
 ?>
+
 
 <div class="form">
 
@@ -20,7 +24,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'enunciado'); ?>
-		<?php echo $form->textArea($model,'enunciado',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->textArea($model,'enunciado',array('rows'=>6, 'cols'=>50, 'id'=>'styled')); ?>
 		<?php echo $form->error($model,'enunciado'); ?>
 	</div>
 
@@ -30,9 +34,7 @@
          <?php echo $form->error($model, "id_tipo_respuesta"); ?>
          </td>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
+	
 
 <?php $this->endWidget(); ?>
 

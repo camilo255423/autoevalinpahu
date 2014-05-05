@@ -27,4 +27,29 @@ $this->menu=array(
 		'id_tipo_proceso',
 		'descripcion',
 	),
+    'pager' => array('cssFile' => Yii::app()->baseUrl . '/css/gridViewStyle/gridView.css'),
+        'cssFile' => Yii::app()->baseUrl . '/css/gridViewStyle/gridView.css',
+        //changing the text above the grid can be fun
+        'summaryText' => 'Yiiplayground is showing you {start} - {end} of {count} cool records',
+        'htmlOptions' => array('class' => 'grid-view rounded'),
+        'columns' => array(
+                array(
+                        'name' => 'username',
+                        'type' => 'raw',
+                        'value' => 'CHtml::encode($data->username)'
+                ),
+                array(
+                        'name' => 'email',
+                        'type' => 'raw',
+                        'value' => 'CHtml::link(CHtml::encode($data->email), "mailto:".CHtml::encode($data->email))',
+                ),
+                array(
+                        'header' => '(fake) Actions',
+                        'class' => 'CButtonColumn',
+                        'viewButtonImageUrl' => Yii::app()->baseUrl . '/css/gridViewStyle/images/' . 'gr-view.png',
+                        'updateButtonImageUrl' => Yii::app()->baseUrl . '/css/gridViewStyle/images/' . 'gr-update.png',
+                        'deleteButtonImageUrl' => Yii::app()->baseUrl . '/css/gridViewStyle/images/' . 'gr-delete.png',
+                ),
+        ),
+
 )); ?>

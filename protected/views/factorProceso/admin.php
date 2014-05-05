@@ -41,4 +41,9 @@ $this->menu=array(
                 ),    
                    
 	),
+      'pager' => array('cssFile' => Yii::app()->baseUrl . '/css/gridViewStyle/gridView.css'),
+        'cssFile' => Yii::app()->baseUrl . '/css/gridViewStyle/gridView.css',
+        //changing the text above the grid can be fun
+        'summaryText' => 'Mostrando {start} - {end} de {count} resultados',
+        'htmlOptions' => array('class' => 'grid-view rounded'),
 )); ?>

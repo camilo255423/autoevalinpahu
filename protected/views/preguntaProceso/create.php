@@ -9,9 +9,10 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 array('label'=>'Guardar', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#pregunta-proceso-form').submit()")),
-);
+array('label'=>'Cancelar', 'url'=>'index.php?r=caracteristicaProceso')
+        );
 ?>
 
-<h1>Create PreguntaProceso</h1>
+<h1>Nueva pregunta</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model,'idCaracteristica'=>$idCaracteristica)); ?>

@@ -5,9 +5,13 @@
 $this->breadcrumbs=array(
 	'Factor Procesos',
 );
-
+$baseUrl = Yii::app()->baseUrl; 
+$cs = Yii::app()->getClientScript();
+$cs->registerCssFile($baseUrl.'/css/gridViewStyle/gridView.css');
+$cs->registerCssFile($baseUrl.'/css/custom.css');
 $this->menu=array(
         array('label'=>'Guardar', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#caracteristica-agregar-preguntas').submit()")),
+        
 );
 ?>
 <div class="form">
@@ -22,7 +26,8 @@ $this->menu=array(
 )); ?>
 <?php echo CHtml::hiddenField("idCaracteristica",$caracteristica->id_caracteristica_proceso); ?>    
 <h2> <?php echo $caracteristica->titulo ?></h2>
-<table>
+<div class="grid-view rounded">
+<table class="items">
 <tr class="row">    
 <th>Pregunta</th>
 
@@ -32,12 +37,12 @@ $this->menu=array(
 </tr>
 <?php foreach ($caracteristica->preguntas as $i=>$pregunta) {?>
 
-<tr>    
+<tr class="<?php if($i%2==0) echo 'odd'; else echo 'even'; ?>">    
 
 <td>
     <?php echo ($i+1); ?> .
                 <?php echo CHtml::ActiveHiddenField($pregunta,"[$i]id_pregunta_proceso"); ?>
-		<?php echo CHtml::ActiveTextArea($pregunta,"[$i]enunciado",array('rows'=>'5','cols'=>'50')); ?>
+		<?php echo CHtml::ActiveTextArea($pregunta,"[$i]enunciado",array('rows'=>'10','cols'=>'30','id'=>'styled')); ?>
 		<?php echo $form->error($pregunta,'enunciado'); ?>
 </td>
 <?php $j=0; ?>
@@ -57,6 +62,7 @@ $this->menu=array(
 <?php } ?>
 </table>
 <?php echo CHtml::submitButton("aceptar"); ?>
+</div>
 </div>
 
 <?php $this->endWidget(); ?>
