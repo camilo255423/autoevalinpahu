@@ -4,15 +4,15 @@
 
 $this->breadcrumbs=array(
 	'Procesos'=>array('index'),
-	'Create',
+	'Crear',
 );
 
 $this->menu=array(
-array('label'=>'Guardar', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#proceso-form').submit()")),
+array('label'=>'Crear', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#proceso-form').submit()")),
     array('label'=>'Cancelar', 'url'=>array('index'))
 );
 ?>
 
-<h1>Create Proceso</h1>
+<h1>Crear Proceso</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

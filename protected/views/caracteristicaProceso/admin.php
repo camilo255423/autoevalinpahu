@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar Características Todas las Características', 'url'=>array('index')),
+	//array('label'=>'Listar todas las características', 'url'=>array('index&idFactor='.$idFactor)),
 	array('label'=>'Crear Característica', 'url'=>array('create')),
 );
 
@@ -65,6 +65,6 @@ $('.search-form form').submit(function(){
       'pager' => array('cssFile' => Yii::app()->baseUrl . '/css/gridViewStyle/gridView.css'),
         'cssFile' => Yii::app()->baseUrl . '/css/gridViewStyle/gridView.css',
         //changing the text above the grid can be fun
-        'summaryText' => 'Yiiplayground is showing you {start} - {end} of {count} cool records',
+        'summaryText' => 'Mostrando {start} - {end} de {count} resultados',
         'htmlOptions' => array('class' => 'grid-view rounded'),
 )); ?>

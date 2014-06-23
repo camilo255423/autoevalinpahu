@@ -3,6 +3,8 @@ $cs = Yii::app()->getClientScript();
 $cs->registerScriptFile($baseUrl.'/js/header.js');
 $cs->registerScriptFile($baseUrl.'/js/redips-drag-min.js');
 $cs->registerScriptFile($baseUrl.'/js/arrastrar.js');
+$cs->registerCssFile($baseUrl.'/css/jquery.toastmessage.css');
+$cs->registerScriptFile($baseUrl.'/js/jquery.toastmessage.js');
 ?>
 <?php
 /* @var $this FactorProcesoController */
@@ -14,6 +16,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Guardar', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#instrumento-fuente').submit()")),
+        array('label'=>'Cancelar', 'url'=>array('index'))
 );
 ?>
 
@@ -27,6 +30,8 @@ $this->menu=array(
 	'enableAjaxValidation'=>false,
 )); ?>
 
+
+
 <?php echo CHtml::hiddenField("idFuente",$fuente->id_fuente_proceso); ?>  
 <h1><?php echo $fuente->nombre; ?></h1>
 <div id="drag">
@@ -36,8 +41,12 @@ $this->menu=array(
 </colgroup>
     
 <tbody>
+Digite el enunciado del cuestionario:    
 <?php echo $form->textArea($fuente, 'enunciado',array('placeholder'=>'digite el enunciado del instrumento...','rows'=>'5','cols'=>'90')); ?>        
-<?php foreach ($fuente->preguntas as $i=>$pregunta) {?>
+
+<b> *Arrastre las preguntas en el orden que desee que aparezcan en el cuestionario.</b>
+    
+        <?php foreach ($fuente->preguntas as $i=>$pregunta) {?>
     
 
 <tr class="zzz">
@@ -54,3 +63,16 @@ $this->menu=array(
 </table>
 </div>
 <?php  $this->endWidget(); ?>
+<script>
+      <?php
+      if($guardado==1){ ?>
+      $().toastmessage('showToast', {
+                text: 'Los cambios han sido almacenados con éxito.',
+                sticky: false,
+                position: 'middle-right',
+                type: 'success',
+                closeText: '',
+             
+            });
+      <?php } ?>
+ </script>

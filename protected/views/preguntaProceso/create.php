@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 array('label'=>'Guardar', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#pregunta-proceso-form').submit()")),
-array('label'=>'Cancelar', 'url'=>'index.php?r=caracteristicaProceso')
+array('label'=>'Cancelar', 'url'=>'index.php?r=caracteristicaProceso/agregarPreguntasTodas')
         );
 ?>
 

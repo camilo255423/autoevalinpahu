@@ -9,9 +9,12 @@ $baseUrl = Yii::app()->baseUrl;
 $cs = Yii::app()->getClientScript();
 $cs->registerCssFile($baseUrl.'/css/gridViewStyle/gridView.css');
 $cs->registerCssFile($baseUrl.'/css/custom.css');
+$cs->registerCssFile($baseUrl.'/css/jquery.toastmessage.css');
+$cs->registerScriptFile($baseUrl.'/js/jquery.toastmessage.js');
+
 $this->menu=array(
         array('label'=>'Guardar', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#caracteristica-agregar-preguntas').submit()")),
-    array('label'=>'Cancelar', 'url'=>array('index'))
+      array('label'=>'Agregar/Editar Preguntas', 'url'=>array('agregarPreguntasTodas'))
         
 );
 ?>
@@ -25,8 +28,7 @@ $this->menu=array(
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
 )); ?>
-<?php echo CHtml::hiddenField("idCaracteristica",$caracteristica->id_caracteristica_proceso); ?>    
-<h2> <?php echo $caracteristica->titulo ?></h2>
+ 
 <div class="grid-view rounded">
 <table class="items">
 <tr class="row">    
@@ -36,15 +38,15 @@ $this->menu=array(
     <th><?php echo $fuente->nombre; ?></th>
     <?php } ?>
 </tr>
-<?php foreach ($caracteristica->preguntas as $i=>$pregunta) {?>
+<?php foreach ($preguntas as $i=>$pregunta) {?>
 
 <tr class="<?php if($i%2==0) echo 'odd'; else echo 'even'; ?>">    
 
 <td>
     <?php echo ($i+1); ?> .
                 <?php echo CHtml::ActiveHiddenField($pregunta,"[$i]id_pregunta_proceso"); ?>
-		<?php echo CHtml::ActiveTextArea($pregunta,"[$i]enunciado",array('id'=>'styled2')); ?>
-		<?php echo $form->error($pregunta,'enunciado'); ?>
+		<?php echo $pregunta->enunciado; ?>
+		
 </td>
 <?php $j=0; ?>
 <?php $nfuentes=count($pregunta->fuentes); ?>
@@ -65,5 +67,19 @@ $this->menu=array(
 
 </div>
 </div>
+  
 
 <?php $this->endWidget(); ?>
+ <script>
+      <?php
+      if($guardado==1){ ?>
+      $().toastmessage('showToast', {
+                text: 'Los cambios han sido almacenados con éxito.',
+                sticky: false,
+                position: 'middle-right',
+                type: 'success',
+                closeText: '',
+             
+            });
+      <?php } ?>
+ </script>

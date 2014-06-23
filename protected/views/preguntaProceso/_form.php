@@ -17,7 +17,7 @@ $cs->registerCssFile($baseUrl.'/css/custom.css');
 		'validateOnSubmit'=>true,
 	),
 )); ?>
-<?php echo CHtml::hiddenField("idCaracteristica",$idCaracteristica);?>
+<?php if(isset($idCaracteristica)) echo CHtml::hiddenField("idCaracteristica",$idCaracteristica);?>
 	<p class="note">Campos con<span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>

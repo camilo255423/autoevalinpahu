@@ -9,13 +9,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List PreguntaProceso', 'url'=>array('index')),
-	array('label'=>'Create PreguntaProceso', 'url'=>array('create')),
-	array('label'=>'View PreguntaProceso', 'url'=>array('view', 'id'=>$model->id_pregunta_proceso)),
-	array('label'=>'Manage PreguntaProceso', 'url'=>array('admin')),
-);
+array('label'=>'Guardar', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#pregunta-proceso-form').submit()")),
+array('label'=>'Cancelar', 'url'=>'index.php?r=caracteristicaProceso/agregarPreguntasTodas')
+        );
 ?>
 
-<h1>Update PreguntaProceso <?php echo $model->id_pregunta_proceso; ?></h1>
+<h1>Editar Pregunta </h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

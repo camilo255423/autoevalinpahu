@@ -1,0 +1,36 @@
+set @id_proceso=2;
+
+
+
+delete from caracteristica_pregunta_proceso where id_pregunta_proceso in (select pregunta_proceso.id_pregunta_proceso from pregunta_proceso where 
+id_proceso=@id_proceso);
+
+delete from pregunta_proceso where id_proceso=@id_proceso;
+
+delete 
+from caracteristica_proceso where
+id_factor_proceso in (select factor_proceso.id_factor_proceso from factor_proceso where 
+factor_proceso.id_proceso=@id_proceso);
+
+
+delete from factor_proceso where id_proceso=@id_proceso;
+
+
+delete from respuesta where id_pregunta_proceso in
+(select id_pregunta_proceso
+from pregunta_proceso where id_proceso=@id_proceso);
+
+delete from pregunta_fuente_proceso where id_pregunta_proceso in (select id_pregunta_proceso
+from pregunta_proceso where id_proceso=@id_proceso);
+
+delete
+from pregunta_proceso where id_proceso=@id_proceso;
+
+delete from usuario_fuente_proceso where id_fuente_proceso in
+(select id_fuente_proceso from fuente_proceso where id_proceso=@id_proceso);
+
+delete from proceso where id_proceso=@id_proceso;
+
+
+
+

@@ -131,6 +131,7 @@ class FuenteProcesoController extends Controller
         public function actionInstrumentoFuente($idFuente)
         {
             $i=0;
+            $guardado=0;
             if($_POST)
             {
                 $idFuente = $_POST['idFuente'];
@@ -138,23 +139,27 @@ class FuenteProcesoController extends Controller
                 $fuente->enunciado = $_POST['FuenteProceso']['enunciado'];
                
                 $fuente->save();
+              if(isset($_POST['PreguntaProceso']))
+              {      
                 foreach($_POST['PreguntaProceso'] as $pregunta)
                 {
                 $pregunta = PreguntaFuenteProceso::model()->findByAttributes(array('id_pregunta_proceso'=>$pregunta['id_pregunta_proceso'],'id_fuente_proceso'=>$idFuente));
                 if($pregunta!=null)
                 {
                     $pregunta->orden = $i;
-                    $pregunta->save();
+                    $guardado=$pregunta->save();
                     $i++;
                     
                 }
                 }
+              } 
                   
             }
           
         $fuente = FuenteProceso::model()->findByPk($idFuente);    
         $this->render('instrumentoFuente',array(
 			'fuente'=>$fuente,
+                        'guardado'=>$guardado
 		));
         }
 

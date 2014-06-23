@@ -73,7 +73,11 @@ class PreguntaProcesoController extends Controller
                         $model->id_proceso= Yii::app()->session['idProceso'];
                         $idCaracteristica=$_POST['idCaracteristica'];
 			if($model->save())
+                        {    if($idCaracteristica!=0)
 				$this->redirect(array('caracteristicaProceso/agregarPreguntas&idCaracteristica='.$idCaracteristica));
+                                else
+                                $this->redirect(array('caracteristicaProceso/agregarPreguntasTodas'));
+                        }
 		}
 
 		$this->render('create',array(
@@ -90,7 +94,7 @@ class PreguntaProcesoController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
+//$idCaracteristica=0;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -98,7 +102,12 @@ class PreguntaProcesoController extends Controller
 		{
 			$model->attributes=$_POST['PreguntaProceso'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_pregunta_proceso));
+                        {
+				//if($idCaracteristica!=0)
+			//	$this->redirect(array('caracteristicaProceso/agregarPreguntas&idCaracteristica='.$idCaracteristica));
+                          //      else
+                                $this->redirect(array('caracteristicaProceso/agregarPreguntasTodas'));
+                        }
 		}
 
 		$this->render('update',array(

@@ -45,8 +45,12 @@ $caracteristica = CaracteristicaProceso::model()->with('preguntas.fuentes')->fin
     </table>
  </div>
  <div id="<?php echo "chart$i"; ?>" style="display: inline-block"></div>
+<?php if(!isset($jsArray)){
+    $jsArray[] = array("",0);
+    
+} ?>
+ <script>graficar("<?php echo "chart$i"; ?>", <?php  echo json_encode($jsArray); ?>);</script>
 
- <script>graficar("<?php echo "chart$i"; ?>", <?php echo json_encode($jsArray); ?>);</script>
 <?php
 $i++;
     }

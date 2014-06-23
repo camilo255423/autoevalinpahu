@@ -16,10 +16,9 @@ class ReportesController extends Controller
 	}
         public function actionActualizar()
         {
-            
             $idCaracteristica = $_POST['id_caracteristica'];
-           
             $this->renderPartial('_contenido',array('idCaracteristica'=>$idCaracteristica),false, true);
+            
         } 
         public function actionActualizarLista()
         {

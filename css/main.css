@@ -44,8 +44,9 @@ body
 #logo
 {
 	padding: 10px 50px 70px 50px;
-	font-size: 200%;
-       background: url('logo.jpg') no-repeat
+	text-align: center;
+       background: url('logo.jpg') no-repeat; 
+       background-size:402px 71px;
 }
 
 #mainmenu

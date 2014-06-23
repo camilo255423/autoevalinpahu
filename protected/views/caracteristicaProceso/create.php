@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 array('label'=>'Guardar', 'url'=>'#','linkOptions'=>array('onClick'=>"$('#caracteristica-nueva-pregunta').submit()")),
-    array('label'=>'Cancelar', 'url'=>array('index'))
+    array('label'=>'Cancelar', 'url'=>array('FactorProceso/index'))
 );
 ?>
 
