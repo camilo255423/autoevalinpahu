@@ -91,8 +91,13 @@ class ProcesoController extends Controller
 		if(isset($_POST['Proceso']))
 		{
 			$model->attributes=$_POST['Proceso'];
+                        
 			if($model->save())
+                        {
+                           // print_r($model);
+                           // exit();
 				$this->redirect(array('index'));
+                        }
 		}
 
 		$this->render('update',array(

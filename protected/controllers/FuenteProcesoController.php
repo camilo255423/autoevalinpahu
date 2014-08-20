@@ -32,7 +32,7 @@ class FuenteProcesoController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'instrumentoFuente'),
+				'actions'=>array('create','update', 'instrumentoFuente','previsualizar'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -134,6 +134,8 @@ class FuenteProcesoController extends Controller
             $guardado=0;
             if($_POST)
             {
+              if(!isset($_POST['previsualizando']))
+              {    
                 $idFuente = $_POST['idFuente'];
                 $fuente = FuenteProceso::model()->findByPk($idFuente);
                 $fuente->enunciado = $_POST['FuenteProceso']['enunciado'];
@@ -155,14 +157,31 @@ class FuenteProcesoController extends Controller
               } 
                   
             }
-          
+            }
+            
         $fuente = FuenteProceso::model()->findByPk($idFuente);    
         $this->render('instrumentoFuente',array(
 			'fuente'=>$fuente,
                         'guardado'=>$guardado
 		));
         }
-
+        public function actionPrevisualizar($idFuente)
+        {
+             $fuente = FuenteProceso::model()->with('preguntas')->findByPk($idFuente);  
+        $respuestas=array();
+        foreach ($fuente->preguntas as $i=>$pregunta)
+        {
+            $respuesta = new Respuesta();
+            $respuesta->id_fuente_proceso = $idFuente;
+            $respuesta->id_usuario_proceso = 0;
+            $respuesta->id_pregunta_proceso = $pregunta->id_pregunta_proceso;
+            array_push($respuestas, $respuesta);
+        }
+        $this->render('vistaCuestionario',array(
+			'fuente'=>$fuente,
+                        'respuestas'=>$respuestas,
+		));
+        }
 	/**
 	 * Manages all models.
 	 */

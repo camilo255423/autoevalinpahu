@@ -2,6 +2,8 @@
 <?php
 $i=0;
 $caracteristica = CaracteristicaProceso::model()->with('preguntas.fuentes')->findByPk($idCaracteristica);
+echo CHtml::link('Descargar Excel','index.php?r=reportes/excel&idCaracteristica='.$idCaracteristica);
+
 ?>
 <br>
 <div><h3><?php echo $caracteristica->titulo; ?></h3></div>

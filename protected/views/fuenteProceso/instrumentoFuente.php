@@ -34,6 +34,9 @@ $this->menu=array(
 
 <?php echo CHtml::hiddenField("idFuente",$fuente->id_fuente_proceso); ?>  
 <h1><?php echo $fuente->nombre; ?></h1>
+<?php echo CHtml::submitButton('Ver Vista Previa del Cuestionario', array('submit' => array('fuenteProceso/Previsualizar&idFuente='.$fuente->id_fuente_proceso))); ?>
+
+<h1></h1>
 <div id="drag">
 <table class="ww" border="1" id="table1">
 <colgroup>

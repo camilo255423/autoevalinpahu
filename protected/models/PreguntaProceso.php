@@ -124,5 +124,29 @@ ORDER BY valor desc
          
             return $dataReader->readAll();
         } 
-        // public function totalPorRespuesta() 
+        public function getEnunciadoConSaltosDeLinea($longitud=20)
+        {
+            $s=$this->enunciado;
+            $inicio=0;
+            $anterior=$inicio;
+
+            while($valor=stripos($s,' ',$inicio))
+            {
+
+
+              if($valor>=($longitud+$anterior))
+                            {
+                               $s[$valor]="\n";
+                                    $anterior=$valor;
+
+                            }
+
+                               $inicio=$valor+1;
+
+
+            }
+            
+            return $s;
+        }
+        
 }
