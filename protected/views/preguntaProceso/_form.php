@@ -12,7 +12,7 @@ $cs->registerCssFile($baseUrl.'/css/custom.css');
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'pregunta-proceso-form',
-        'enableClientValidation'=>true,
+        'enableClientValidation'=>false,
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,
 	),
@@ -21,7 +21,7 @@ $cs->registerCssFile($baseUrl.'/css/custom.css');
 	<p class="note">Campos con<span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
+        
 	<div class="row">
 		<?php echo $form->labelEx($model,'enunciado'); ?>
 		<?php echo $form->textArea($model,'enunciado',array('rows'=>6, 'cols'=>50, 'id'=>'styled')); ?>

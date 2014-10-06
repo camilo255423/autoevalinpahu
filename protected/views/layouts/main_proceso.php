@@ -51,10 +51,10 @@
 
 	<div class="clear"></div>
 
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
+        <div id="footer">
+		Copyright &copy; <?php echo date('Y'); ?> Inpahu<br/>
+		Sistema de Autoevaluación<br/>
+		
 	</div><!-- footer -->
 
 </div><!-- page -->
