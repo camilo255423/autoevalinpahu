@@ -103,44 +103,6 @@ class TipoRespuestaController extends Controller
 		));
 	}
 
-        public function actionBorrar($id)
-	{
-            $respuestas = PreguntaProceso::model()->findByAttributes(array("id_tipo_respuesta"=>$id));
-                if($respuestas==null)
-                {    
-                    $tipoRespuesta=TipoRespuesta::model()->findByPk($id)->with('opcionesRespuesta.respuestas');
-                    $i=0;
-                    foreach($tipoRespuesta->opcionesRespuestas as $opcionesRespuesta)
-                    {
-                    if(count($opcionesRespuesta->respuestas)>0) $i++;    
-                    }
-                        if($i==0)
-                        {    
-                            foreach($tipoRespuesta->opcionesRespuestas as $opcionesRespuesta)
-                            {
-                            $opcionesRespuesta->delete();    
-                            }
-                            $tipoRespuesta->delete();
-                            $status=array('status' => 'succesful', 'message' => 'ok.');
-
-                        }
-                        else
-                        {
-                            $status=array('status' => 'error', 'message' => 'No se puede borrar este tipo de pregunta porque ya hay procesos realizados con esta.');
-
-                        }    
-
-                    
-                
-                }
-                else
-                {    
-                $status=array('status' => 'error', 'message' => 'Este tipo de respuesta no se puede eliminar porque ya existen preguntas asociadas.');
-                }
-               // header('Content-type: application/json');
-                echo json_encode($status);
-            
-        }
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
