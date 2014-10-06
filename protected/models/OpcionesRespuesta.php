@@ -31,7 +31,7 @@ class OpcionesRespuesta extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('respuesta, valor, id_tipo_respuesta', 'required'),
-			array('respuesta, valor, id_tipo_respuesta', 'numerical', 'integerOnly'=>true),
+			array('valor, id_tipo_respuesta', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id_opcion, respuesta, valor, id_tipo_respuesta', 'safe', 'on'=>'search'),
@@ -47,6 +47,7 @@ class OpcionesRespuesta extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idTipoRespuesta' => array(self::BELONGS_TO, 'TipoRespuesta', 'id_tipo_respuesta'),
+                    'respuestas' => array(self::HAS_MANY, 'Respuesta', 'id_opcion'),
 		);
 	}
 
@@ -56,7 +57,7 @@ class OpcionesRespuesta extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_opcion' => 'Id Opcion',
+			'id_opcion' => 'Id Opción',
 			'respuesta' => 'Respuesta',
 			'valor' => 'Valor',
 			'id_tipo_respuesta' => 'Id Tipo Respuesta',
@@ -75,7 +76,7 @@ class OpcionesRespuesta extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search()
+	public function search($idTipoRespuesta)
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
@@ -84,7 +85,7 @@ class OpcionesRespuesta extends CActiveRecord
 		$criteria->compare('id_opcion',$this->id_opcion);
 		$criteria->compare('respuesta',$this->respuesta);
 		$criteria->compare('valor',$this->valor);
-		$criteria->compare('id_tipo_respuesta',$this->id_tipo_respuesta);
+		$criteria->compare('id_tipo_respuesta',$idTipoRespuesta);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -57,7 +57,7 @@ class TipoRespuesta extends CActiveRecord
 	{
 		return array(
 			'id_tipo_respuesta' => 'Id Tipo Respuesta',
-			'titulo' => 'Titulo',
+			'titulo' => 'Título',
 		);
 	}
 

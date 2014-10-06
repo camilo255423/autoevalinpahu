@@ -32,6 +32,7 @@
 			'items'=>array(
                             array('label'=>'Procesos', 'url'=>array('/proceso')),
                             array('label'=>'Preguntas', 'url'=>array('/caracteristicaProceso/agregarPreguntasTodas')),
+                            array('label'=>'Tipos de Respuesta', 'url'=>array('/tipoRespuesta/admin')),
                             array('label'=>'Factores/Características', 'url'=>array('/factorProceso/admin')),
                             array('label'=>'Fuentes/Instrumentos', 'url'=>array('/fuenteProceso')),
                             array('label'=>'Reportes', 'url'=>array('/reportes')),

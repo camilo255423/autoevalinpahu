@@ -37,6 +37,7 @@ $this->menu=array(
                             'label'=>'Actualizar factor',
                             
                         ),
+                  
                     ),
                 ),    
                    
