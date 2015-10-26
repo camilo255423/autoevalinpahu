@@ -111,12 +111,14 @@ class TipoRespuestaController extends Controller
 	public function actionDelete($id)
 	{
             $respuestas = PreguntaProceso::model()->findByAttributes(array("id_tipo_respuesta"=>$id));
+            
                 if($respuestas==null)
                 {    
                     $tipoRespuesta=TipoRespuesta::model()->findByPk($id)->with('opcionesRespuesta.respuestas');
                     $i=0;
                     foreach($tipoRespuesta->opcionesRespuestas as $opcionesRespuesta)
                     {
+
                     if(count($opcionesRespuesta->respuestas)>0) $i++;    
                     }
                         if($i==0)
