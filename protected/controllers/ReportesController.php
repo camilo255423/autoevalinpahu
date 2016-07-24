@@ -102,6 +102,44 @@ header('Content-Disposition: attachment;filename="MyExcelFile.xlsx"');
 
             
         }
+
+        public function actionMatriz()
+        {
+           Yii::import('ext.phpexcel.XPHPExcel'); 
+           $nfila=1;
+           $npregunta=1;
+           $objPHPExcel= XPHPExcel::createPHPExcel();
+      
+     /*      $objPHPExcel->getProperties()->setCreator("Maarten Balliauw")
+                                  ->setLastModifiedBy("Maarten Balliauw")
+                                  ->setTitle("Office 2007 XLSX Test Document")
+                                  ->setSubject("Office 2007 XLSX Test Document")
+                                  ->setDescription("Test document for Office 2007 XLSX, generated using PHP classes.")
+                                  ->setKeywords("office 2007 openxml php")
+                                  ->setCategory("Test result file");
+*/
+          
+
+            $objReader = PHPExcel_IOFactory::createReader('Excel5');
+            $objPHPExcel = $objReader->load('/var/www/html/autoevalinpahu/protected/controllers/plantilla_matriz.xls'); 
+            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+            header('Content-Disposition: attachment;filename="Matriz.xlsx"');
+             // If you're serving to IE 9, then the following may be needed
+            header('Cache-Control: max-age=1');
+
+             // If you're serving to IE over SSL, then the following may be needed
+            header ('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
+            header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
+            header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
+            header ('Pragma: public'); // HTTP/1.0
+
+            $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+            $objWriter->setIncludeCharts(TRUE);
+            $objWriter->save('php://output');
+            Yii::app()->end();                      
+
+        }
+
         //Generación de EXCEL
         /**
          * 
