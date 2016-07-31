@@ -106,22 +106,17 @@ header('Content-Disposition: attachment;filename="MyExcelFile.xlsx"');
         public function actionMatriz()
         {
            Yii::import('ext.phpexcel.XPHPExcel'); 
-           $nfila=1;
-           $npregunta=1;
+           $idProceso = Yii::app()->session['idProceso'];
+          
+           $file =getcwd()."/protected/controllers/plantilla_matriz.xls";
            $objPHPExcel= XPHPExcel::createPHPExcel();
       
-     /*      $objPHPExcel->getProperties()->setCreator("Maarten Balliauw")
-                                  ->setLastModifiedBy("Maarten Balliauw")
-                                  ->setTitle("Office 2007 XLSX Test Document")
-                                  ->setSubject("Office 2007 XLSX Test Document")
-                                  ->setDescription("Test document for Office 2007 XLSX, generated using PHP classes.")
-                                  ->setKeywords("office 2007 openxml php")
-                                  ->setCategory("Test result file");
-*/
-          
 
             $objReader = PHPExcel_IOFactory::createReader('Excel5');
-            $objPHPExcel = $objReader->load('/var/www/html/autoevalinpahu/protected/controllers/plantilla_matriz.xls'); 
+            $objPHPExcel = $objReader->load($file); 
+            $objPHPExcel->setActiveSheetIndex(0);
+    
+            $activeSheet=$objPHPExcel->getActiveSheet();
             header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
             header('Content-Disposition: attachment;filename="Matriz.xlsx"');
              // If you're serving to IE 9, then the following may be needed
@@ -132,6 +127,31 @@ header('Content-Disposition: attachment;filename="MyExcelFile.xlsx"');
             header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
             header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
             header ('Pragma: public'); // HTTP/1.0
+
+            $respuestasPositivas = Matriz::getNumeroRespuestasPositivasPorCaracteristica($idProceso);
+            $totalRespuestas = Matriz::getNumeroTotalDeRespuestasPorCaracteristica($idProceso);
+            $fuentes = ['ESTUDIANTE','DOCENTE','ADMINISTRATIVO','GRADUADO'];
+
+
+            $fila=7;
+            for($caracteristica=1;$caracteristica<=40; $caracteristica++) {
+                $columna=16;
+                foreach($fuentes as $fuente){
+                    if(isset($respuestasPositivas[$caracteristica])&&isset($totalRespuestas[$caracteristica])){
+                        if(isset($respuestasPositivas[$caracteristica][$fuente]) && $totalRespuestas[$caracteristica][$fuente]){
+                            $porcentaje = 100 * $respuestasPositivas[$caracteristica][$fuente]/$totalRespuestas[$caracteristica][$fuente];
+                            $porcentaje = number_format((float)$porcentaje, 2, '.', '');
+                            $activeSheet->setCellValueByColumnAndRow($columna,$fila,$porcentaje);
+                            
+                        }
+                        else{
+                            $activeSheet->setCellValueByColumnAndRow($columna,$fila,'');
+                        }
+                    }
+                    $columna++;
+                }
+            $fila++;
+            }   
 
             $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
             $objWriter->setIncludeCharts(TRUE);
@@ -283,30 +303,5 @@ header('Content-Disposition: attachment;filename="MyExcelFile.xlsx"');
      Yii::app()->end();
                
         }
-	// Uncomment the following methods and override them if needed
-	/*
-	public function filters()
-	{
-		// return the filter configuration for this controller, e.g.:
-		return array(
-			'inlineFilterName',
-			array(
-				'class'=>'path.to.FilterClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-
-	public function actions()
-	{
-		// return external action classes, e.g.:
-		return array(
-			'action1'=>'path.to.ActionClass',
-			'action2'=>array(
-				'class'=>'path.to.AnotherActionClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-	*/
+	
 }

@@ -79,14 +79,17 @@ return array(
 				array(
 					'class'=>'CFileLogRoute',
 					'levels'=>'error, warning',
+					'categories'=>'system.db.*',
+                            'logFile'=>'sql.log'
+
 				),
 				// uncomment the following to show log messages on web pages
-				/*
+		/*		
 				array(
 					'class'=>'CWebLogRoute',
 				),
-                                 * 
-                                 */
+                  */               
+                                 
 				
 			),
 		),

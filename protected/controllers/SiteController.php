@@ -32,6 +32,7 @@ class SiteController extends Controller
 		$this->redirect("index.php?r=proceso");
 	}
 
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */
