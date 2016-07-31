@@ -66,7 +66,7 @@ array(
       
 $.ajax({
       type: "POST",
-      url:    "<? echo Yii::app()->createUrl('reportes/actualizar'); ?>",
+      url:    "<?php echo Yii::app()->createUrl('reportes/actualizar'); ?>",
       data:  {id_caracteristica:1},
       success: function(html){jQuery("#contenido").html(html)}
      
